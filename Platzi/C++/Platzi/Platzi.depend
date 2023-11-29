@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1551888832 source:/Users/Joe/Desktop/MisProyectos/Platzi/main.cpp
+	<iostream>
+	<fstream>
+

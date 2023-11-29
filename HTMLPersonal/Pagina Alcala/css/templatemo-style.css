@@ -629,7 +629,7 @@ p, address {
 
 @media (min-width: 768px) {
  .tm-history-text {
-    max-width: auto;
+    max-width: 1px ;
     margin: 0 auto 0 35px;
   } 
 }

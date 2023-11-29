@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1552026751 source:/Users/Joe/Desktop/MisProyectos/Laberinto/main.cpp
+	<iostream>
+	"GameMap.h"
+	"Player.h"
+
+1551971511 /Users/Joe/Desktop/MisProyectos/Laberinto/include/MapCell.h
+	<iostream>
+
+1551971500 source:/Users/Joe/Desktop/MisProyectos/Laberinto/src/MapCell.cpp
+	"MapCell.h"
+
+1552026648 source:/Users/Joe/Desktop/MisProyectos/Laberinto/src/GameMap.cpp
+	"GameMap.h"
+	<fstream>
+
+1552026711 /Users/Joe/Desktop/MisProyectos/Laberinto/include/GameMap.h
+	"MapCell.h"
+
+1552025883 /Users/Joe/Desktop/MisProyectos/Laberinto/include/Player.h
+	<iostream>
+
+1552026022 source:/Users/Joe/Desktop/MisProyectos/Laberinto/src/Player.cpp
+	"Player.h"
+
