@@ -300,14 +300,14 @@ p, address {
 }
 
 .tm-nav-link {
-  color: white;
+  color: #ffffff;
   text-decoration: none;
   padding-bottom: 10px;
 }
 
 .tm-nav-link.active,
 .tm-nav-link:hover {
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #ffffff;
 }
 
 .tm-welcome-section {
@@ -859,4 +859,81 @@ address {
 
 .panel p {
   padding: 5px 20px 30px;
+}
+
+.cd-headline.rotate-1 b {
+  opacity: 0;
+  transform-origin: 50% 100%;
+  transform: rotateX(180deg);
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.cd-headline.rotate-1 b.is-visible {
+  position: relative;
+  opacity: 1;
+  transform: rotateX(0deg);
+  animation: cd-rotate-1-in 1.2s;
+}
+
+.cd-headline.rotate-1 b.is-hidden {
+  transform: rotateX(360deg);
+  animation: cd-rotate-1-out 1.2s;
+}
+
+@keyframes cd-rotate-1-in {
+  0% {
+    transform: rotateX(180deg);
+    opacity: 0;
+  }
+  35% {
+    transform: rotateX(120deg);
+    opacity: 0;
+  }
+  65% {
+    opacity: 0;
+  }
+  100% {
+    transform: rotateX(360deg);
+    opacity: 1;
+  }
+}
+
+@keyframes cd-rotate-1-out {
+  0% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+  35% {
+    transform: rotateX(-40deg);
+    opacity: 1;
+  }
+  65% {
+    opacity: 0;
+  }
+  100% {
+    transform: rotateX(180deg);
+    opacity: 0;
+  }
+}
+
+.img-alcala {
+  margin-bottom: 2px;
+  -moz-transition: -moz-transform 0.2s ease-out;
+  -webkit-transition: -webkit-transform 0.2s ease-out;
+  -ms-transition: -ms-transform 0.2s ease-out;
+  transition: transform 0.2s ease-out;
+  width: 160px; /* Establece el ancho deseado */
+  height: 240px; /* Establece el alto deseado */
+  object-fit: cover; /* Escala la imagen para que llene el contenedor manteniendo la relación de aspecto */
+}
+
+
+.img-alcala:hover{
+  -moz-transform: scale(1.40);
+  -webkit-transform: scale(1.40);
+  -ms-transform: scale(1.40);
+  transform: scale(1.40);
 }
