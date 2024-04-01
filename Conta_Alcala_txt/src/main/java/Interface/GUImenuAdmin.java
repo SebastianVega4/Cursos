@@ -59,11 +59,6 @@ public class GUImenuAdmin extends JFrame implements ActionListener{
         JPbuttons.setBackground(Color.white);
         JPbuttons.setBorder(borde);
         
-        JBcustomer.setIcon(imageEscale(new ImageIcon("Resourses\\Icons\\clientes.jpg"), w, h));
-        JBcustomer.setBackground(Color.white);
-        JBcustomer.setBorder(null);
-        JBcustomer.addActionListener(this);
-        
         JBinventory.setIcon(imageEscale(new ImageIcon("Resourses\\Icons\\inventario.jpg"), w, h));
         JBinventory.setBackground(Color.white);
         JBinventory.setBorder(null);

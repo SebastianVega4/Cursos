@@ -31,7 +31,7 @@ public class ImageProducts {
 	        File selectedFile = fileChooser.getSelectedFile();
 
 	        // Define la ruta y el nombre para la copia en Resources\\Icons\\
-	        String copyPath = "Resourses\\Icons\\" + String.valueOf(index) + ".png";
+	        String copyPath = "src/main/resources/Icons/" + String.valueOf(index) + ".png";
 
 	        try {
 	            // Copia el archivo seleccionado a la ubicación deseada
@@ -63,7 +63,7 @@ public class ImageProducts {
 	public boolean renameImage(String newName) {
 	    if (rutaYNombreImagen != null) {
 	        File imagenAnterior = new File(rutaYNombreImagen);
-	        File nuevaImagen = new File("Resourses\\Icons\\" + newName + ".png");
+	        File nuevaImagen = new File("src/main/resources/Icons/" + newName + ".png");
 
 	        if (imagenAnterior.renameTo(nuevaImagen)) {
 	            rutaYNombreImagen = nuevaImagen.getAbsolutePath();
@@ -74,7 +74,7 @@ public class ImageProducts {
 	}
 
 	public void DeleteImage(int index) {
-		 String filePath = "Resourses\\Icons\\" + index + ".png";
+		 String filePath = "src/main/resources/Icons/" + index + ".png";
 
 		    Path target = Paths.get(filePath);
 

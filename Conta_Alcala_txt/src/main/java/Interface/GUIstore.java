@@ -1,6 +1,6 @@
 package Interface;
 
-import persistence.Customers;
+import model.Administrator;
 import persistence.Inventory;
 
 import javax.swing.*;
@@ -9,9 +9,7 @@ import java.io.IOException;
 
 public class GUIstore {
     private final JFrame frame;
-    private static Customers customers;
     private static Inventory inventory = null;
-    private static int userSelect;
 
     public GUIstore() throws IOException {
         frame = new JFrame("Ferreteria ideal");
@@ -22,7 +20,6 @@ public class GUIstore {
         frame.setLocationRelativeTo(null);
         frame.setLayout(new BorderLayout());
 
-        customers = new Customers();
         inventory = new Inventory();
     }
 
@@ -30,14 +27,6 @@ public class GUIstore {
         GUILoginPanel GUILoginPanel = new GUILoginPanel(this);
         frame.getContentPane().removeAll();
         frame.getContentPane().add(GUILoginPanel.getPanel(), BorderLayout.CENTER);
-        frame.revalidate();
-        frame.repaint();
-    }
-
-    public void showRegisterPanel() {
-        GUIRegisterPanel GUIRegisterPanel = new GUIRegisterPanel(this);
-        frame.getContentPane().removeAll();
-        frame.getContentPane().add(GUIRegisterPanel.getPanel(), BorderLayout.CENTER);
         frame.revalidate();
         frame.repaint();
     }
@@ -68,18 +57,7 @@ public class GUIstore {
         return frame;
     }
 
-    public static Customers getCustomers() {
-        return customers;
-    }
-
     public static Inventory getInventory() {
         return inventory;
-    }
-
-    public static void setUserSelect(int userSelec) {
-        userSelect = userSelec;
-    }
-    public static int getUserSelect() {
-        return userSelect;
     }
 }

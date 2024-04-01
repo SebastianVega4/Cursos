@@ -14,7 +14,7 @@ public class GUILoginPanel extends LogicCustomer {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon backgroundImage = new ImageIcon("Resourses\\Icons\\login.png");
+                ImageIcon backgroundImage = new ImageIcon("src/main/resources/Icons/Login.png");
                 g.drawImage(backgroundImage.getImage(), 0, 0, getWidth(), getHeight(), this);
             }
         };
@@ -24,14 +24,14 @@ public class GUILoginPanel extends LogicCustomer {
         topPanel.setOpaque(false);
 
         //logo empresa arriba a la izquierda
-        ImageIcon imageLogo = new ImageIcon("Resourses\\Icons\\Logo.png");
+        ImageIcon imageLogo = new ImageIcon("src/main/resources/Icons/Logo.png");
         Image imageLog = imageLogo.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
         ImageIcon scaledImageLogo = new ImageIcon(imageLog);
         JLabel imgLog = new JLabel(scaledImageLogo);
         topPanel.add(imgLog, BorderLayout.WEST);//añadir imagen con ubicaion
 
         //boton con la imgen de admin arriba a la derecha
-        ImageIcon adminIcon = new ImageIcon("Resourses\\Icons\\admin1.png");
+        ImageIcon adminIcon = new ImageIcon("src/main/resources/Icons/admin1.png");
         Image adminImage = adminIcon.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
         ImageIcon scaledamdinIcon = new ImageIcon(adminImage);
         JButton adminButton = new JButton("", scaledamdinIcon);
@@ -46,20 +46,20 @@ public class GUILoginPanel extends LogicCustomer {
         loginPanel.setOpaque(false);
         loginPanel.setLayout(new GridLayout(4, 1));
 
-        //panel grid para cada uno de los labels y field en grupos
+//panel grid para cada uno de los labels y field en grupos
         JPanel emailPanel = new JPanel(new GridBagLayout());
         emailPanel.setOpaque(false);
-        JLabel emailLabel = new JLabel("Correo Electrónico:");
-        emailLabel.setForeground(Color.WHITE);
-        emailLabel.setFont(new Font("Serif", Font.ITALIC, 18));
-        JTextField emailField = new JTextField(24);
+        JLabel userLabel = new JLabel("User:");
+        userLabel.setForeground(Color.WHITE);
+        userLabel.setFont(new Font("Serif", Font.ITALIC, 18));
+        JTextField userField = new JTextField(24);
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.anchor = GridBagConstraints.WEST;
-        emailPanel.add(emailLabel, gbc);
+        emailPanel.add(userLabel, gbc);
         gbc.gridy = 1;
-        emailPanel.add(emailField, gbc);
+        emailPanel.add(userField, gbc);
         loginPanel.add(emailPanel);
 
         JPanel passwordPanel = new JPanel(new GridBagLayout());
@@ -79,13 +79,6 @@ public class GUILoginPanel extends LogicCustomer {
         JPanel buttomPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         buttomPanel.setOpaque(false);
 
-        JButton signupButton = new JButton("Registrarse");
-        signupButton.setForeground(Color.WHITE);
-        signupButton.setBackground(Color.black);
-        signupButton.setFont(new Font("Serif", Font.ITALIC, 11));
-        signupButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        buttomPanel.add(signupButton);
-
         JButton loginButton = new JButton("Iniciar Sesión");
         loginButton.setForeground(Color.WHITE);
         loginButton.setBackground(Color.black);
@@ -101,15 +94,12 @@ public class GUILoginPanel extends LogicCustomer {
 
         //capturar evento del boton login
         loginButton.addActionListener(e -> {
-            if (loginCustomer(emailField.getText(), new String(passwordField.getPassword()))) {
+            if (loginCustomer(userField.getText(), new String(passwordField.getPassword()))) {
                 guiStore.showCustomerMenuPanel();
             } else {
                 JOptionPane.showMessageDialog(guiStore.getFrame(), "Credenciales inválidas. Inténtalo de nuevo.");
             }
         });
-
-        //Capturar evento rsgistarse
-        signupButton.addActionListener(e -> guiStore.showRegisterPanel());
 
         //Capturar evento boton Administrador
         adminButton.addActionListener(e -> {

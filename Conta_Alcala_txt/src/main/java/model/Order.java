@@ -2,11 +2,9 @@ package model;
 
 public class Order {
     private ShoppingCart shoppingCart;
-    private String addressShopping;
 
-    public Order(ShoppingCart shoppingCart, String addressShopping) {
+    public Order(ShoppingCart shoppingCart) {
         this.shoppingCart = shoppingCart;
-        this.addressShopping = addressShopping;
     }
 
     public ShoppingCart getShoppingCart() {
@@ -15,13 +13,5 @@ public class Order {
 
     public void setShoppingCart(ShoppingCart shoppingCart) {
         this.shoppingCart = shoppingCart;
-    }
-
-    public String getAddressShopping() {
-        return addressShopping;
-    }
-
-    public void setAddressShopping(String addressShopping) {
-        this.addressShopping = addressShopping;
     }
 }

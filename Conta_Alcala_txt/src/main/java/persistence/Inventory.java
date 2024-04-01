@@ -18,7 +18,7 @@ public class Inventory {
     }
 
     public void obtainProductToTxt() throws IOException {
-        FileReader reader = new FileReader("Resourses\\ProductsFerreteriaIdeal.txt");
+        FileReader reader = new FileReader("src/main/resources/ProductsAlcala.txt");
         BufferedReader bufferedReader = new BufferedReader(reader);
         String line;
         while ((line = bufferedReader.readLine()) != null) {
@@ -35,7 +35,7 @@ public class Inventory {
     }
 
     public void updateProductToTxt() throws IOException {
-        FileWriter writer = new FileWriter("Resourses\\ProductsFerreteriaIdeal.txt", false);
+        FileWriter writer = new FileWriter("src/main/resources/ProductsAlcala.txt", false);
         for (Product product : products) {
             writer.write(product.toString() + "\n");
         }

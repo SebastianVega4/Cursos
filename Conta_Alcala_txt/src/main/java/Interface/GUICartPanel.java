@@ -1,6 +1,7 @@
 package Interface;
 
 import logic.LogicCustomer;
+import model.Administrator;
 import model.Product;
 
 import javax.swing.*;
@@ -58,7 +59,7 @@ public class GUICartPanel extends LogicCustomer {
         Image eraseImage = eraseIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
         ImageIcon scaledEraseIcon = new ImageIcon(eraseImage);
 
-        for (Product product : GUIstore.getCustomers().getUsers().get(GUIstore.getUserSelect()).getShoppingCart().getProducts()) {
+        for (Product product : Administrator.getShoppingCart().getProducts()) {
             ImageIcon imageProduct = new ImageIcon("Resourses\\Icons\\" + product.getId() + ".png");
             Image image = imageProduct.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
             ImageIcon scaledImageProduct = new ImageIcon(image);
@@ -68,7 +69,7 @@ public class GUICartPanel extends LogicCustomer {
             nameLabel.setForeground(Color.WHITE);
             JLabel priceLabel = new JLabel("$" + product.getPrice());
             priceLabel.setForeground(Color.WHITE);
-            JLabel purchased = new JLabel(String.valueOf(GUIstore.getCustomers().getUsers().get(GUIstore.getUserSelect()).getShoppingCart().getPurchased(product)));
+            JLabel purchased = new JLabel(String.valueOf(Administrator.getShoppingCart().getPurchased(product)));
             purchased.setForeground(Color.WHITE);
             JButton removeButton = new JButton("Eliminar del Carrito", scaledEraseIcon);
             removeButton.setFont(new Font("Serif", Font.ITALIC, 12));
@@ -92,7 +93,7 @@ public class GUICartPanel extends LogicCustomer {
                 guiStore.showCartPanel();
             });
         }
-        JLabel totalLabel = new JLabel("Total: $" + GUIstore.getCustomers().getUsers().get(GUIstore.getUserSelect()).getShoppingCart().calcTotal());
+        JLabel totalLabel = new JLabel("Total: $" + Administrator.getShoppingCart().calcTotal());
         totalLabel.setForeground(Color.WHITE);
         gbcCart.gridy++;
         gbcCart.gridx = 3;
@@ -157,16 +158,8 @@ public class GUICartPanel extends LogicCustomer {
 
         checkoutButton.addActionListener(e -> {
             try {
-                if (ifAdressIsNull()) {
-                    makePurchase(JOptionPane.showInputDialog(guiStore.getFrame(), "Ingrese su dirección de envío:"));
-                    if (!ifAdressIsNull()) {
-                        JOptionPane.showMessageDialog(guiStore.getFrame(), getFacture());
-                        clearCart();
-                    }
-                } else {
-                    makePurchase();
-                    JOptionPane.showMessageDialog(guiStore.getFrame(), getFacture());
-                }
+                makePurchase();
+                JOptionPane.showMessageDialog(guiStore.getFrame(), getFacture());
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }

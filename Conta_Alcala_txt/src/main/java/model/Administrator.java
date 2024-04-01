@@ -1,19 +1,24 @@
 package model;
 
 public class Administrator {
-    private final String name;
-    private final String password;
+    private static final String name= "admin";
+    private static final String password= "1234";
+    private static ShoppingCart shoppingCart = null;
 
     public Administrator() {
-        this.name = "admin";
-        this.password = "1234";
+        this.shoppingCart = new ShoppingCart();
     }
 
-    public String getName() {
+    public static String getName() {
         return name;
     }
 
-    public String getPassword() {
+    public static String getPassword() {
         return password;
     }
+
+    public static ShoppingCart getShoppingCart() {
+        return shoppingCart;
+    }
+
 }

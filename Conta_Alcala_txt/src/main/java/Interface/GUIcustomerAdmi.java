@@ -1,8 +1,5 @@
 package Interface;
 
-import model.User;
-import persistence.Customers;
-
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
@@ -121,16 +118,6 @@ public class GUIcustomerAdmi extends JFrame implements ActionListener, MouseList
 		
 		Object[]fila;
 		ImageIcon icon = imageEscale(new ImageIcon("Resourses\\Icons\\Lupa.png"), 20, 20);
-		Customers c = new Customers();
-		for(User user: c.getUsers()) {
-			fila = new Object[4];
-			fila[0] = user.getName();
-			fila[1] = user.getEmail();
-			fila[2] = user.getAddress();
-			fila[3] = icon;
-			
-			modelo.addRow(fila);
-		}
 		return modelo;
 	}
 

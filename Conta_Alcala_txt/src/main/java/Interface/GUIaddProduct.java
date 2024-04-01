@@ -154,12 +154,12 @@ public class GUIaddProduct extends JFrame implements ActionListener {
 
 					LA.addProduct(JTname.getText(), JTdescription.getText(), JTprice.getText(),
 							JSstock.getValue().toString(), index);
-					JOptionPane.showMessageDialog(null, "Producto añadido con éxito");
+					JOptionPane.showMessageDialog(null, "Producto a?adido con ?xito");
 
 					new GUIinventoryAdmi();
 					setVisible(false);
 				} catch (NumberFormatException ex) {
-					JOptionPane.showMessageDialog(null, "Ingrese un valor numérico válido en el campo de precio");
+					JOptionPane.showMessageDialog(null, "Ingrese un valor num?rico v?lido en el campo de precio");
 				}
 			}
 		} else if ((JButton) e.getSource() == JBicono) {

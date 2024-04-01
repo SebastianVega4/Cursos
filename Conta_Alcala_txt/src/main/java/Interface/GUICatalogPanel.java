@@ -97,7 +97,7 @@ public class GUICatalogPanel extends LogicCustomer {
             gbcProduct.gridx++;
             centerPanel.add(addButton, gbcProduct);
 
-            buys.addChangeListener(e -> addNumberPurchesed(product, (Integer) buys.getValue()));
+            //buys.addChangeListener(e -> addNumberPurchesed(product, (Integer) buys.getValue()));
 
             addButton.addActionListener(e -> {
                 if ((Integer) buys.getValue() == 0)
@@ -107,7 +107,7 @@ public class GUICatalogPanel extends LogicCustomer {
                 else if ((Integer) buys.getValue() > product.getStock())
                     JOptionPane.showMessageDialog(guiStore.getFrame(), "No hay suficiente Stock del Articulo: '" + product.getNameProduct());
                 else if ((Integer) buys.getValue() > 0) {
-                    JOptionPane.showMessageDialog(guiStore.getFrame(), (addPurchased(product)));
+                    //JOptionPane.showMessageDialog(guiStore.getFrame(), (addPurchased(product)));
                 }
             });
 

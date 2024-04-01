@@ -20,7 +20,7 @@ public class LogicAdmin {
 		try {
 			inventory = new Inventory();
 		} catch (IOException e) {
-			System.out.println("ups alg paso");
+			System.out.println("ups algo paso");
 		}
 	}
 	

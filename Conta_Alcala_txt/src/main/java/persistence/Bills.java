@@ -19,7 +19,7 @@ public class Bills {
 	
 	public void obtainBills() throws IOException {
 		try {
-			FileReader reader = new FileReader("Resourses\\Bills\\User" + name + ".txt");
+			FileReader reader = new FileReader("src/main/resources/Bills/" + "getFecha" + ".txt");
 			BufferedReader buffered = new BufferedReader(reader);
 			String line;
 			while((line = buffered.readLine()) != null) {
