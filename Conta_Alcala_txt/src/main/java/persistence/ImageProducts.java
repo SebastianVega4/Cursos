@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Objects;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -30,13 +31,10 @@ public class ImageProducts {
 	    if (seleccion == JFileChooser.APPROVE_OPTION) {
 	        File selectedFile = fileChooser.getSelectedFile();
 
-	        // Define la ruta y el nombre para la copia en Resources\\Icons\\
-	        String copyPath = "src/main/resources/Icons/" + String.valueOf(index) + ".png";
-
 	        try {
-	            // Copia el archivo seleccionado a la ubicación deseada
+	            // Copia el archivo seleccionado a la ubicaciï¿½n deseada
 	            FileInputStream fis = new FileInputStream(selectedFile);
-	            FileOutputStream fos = new FileOutputStream(copyPath);
+	            FileOutputStream fos = new FileOutputStream(String.valueOf(getClass().getResource("/Icons/" + String.valueOf(index) + ".png")));
 	            byte[] buffer = new byte[1024];
 	            int bytesRead;
 	            while ((bytesRead = fis.read(buffer)) > 0) {
@@ -49,7 +47,7 @@ public class ImageProducts {
 	            rutaYNombreImagen = selectedFile.getAbsolutePath();
 
 	            // Crea un ImageIcon usando la ruta de la copia
-	            imagen = new ImageIcon(copyPath);
+	            imagen = new ImageIcon(String.valueOf(getClass().getResource("/Icons/" + String.valueOf(index) + ".png")));
 	            return true;
 	        } catch (IOException e) {
 	            e.printStackTrace();
@@ -63,7 +61,7 @@ public class ImageProducts {
 	public boolean renameImage(String newName) {
 	    if (rutaYNombreImagen != null) {
 	        File imagenAnterior = new File(rutaYNombreImagen);
-	        File nuevaImagen = new File("src/main/resources/Icons/" + newName + ".png");
+	        File nuevaImagen = new File(String.valueOf(getClass().getResource("/Icons/" + newName + ".png")));
 
 	        if (imagenAnterior.renameTo(nuevaImagen)) {
 	            rutaYNombreImagen = nuevaImagen.getAbsolutePath();
@@ -74,10 +72,7 @@ public class ImageProducts {
 	}
 
 	public void DeleteImage(int index) {
-		 String filePath = "src/main/resources/Icons/" + index + ".png";
-
-		    Path target = Paths.get(filePath);
-
+		    Path target = Paths.get(String.valueOf(getClass().getResource("/Icons/" + index + ".png")));
 		    try {
 		        Files.delete(target);
 		    } catch (IOException e) {

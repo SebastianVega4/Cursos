@@ -5,34 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b046a45-0cf1-4a6e-8299-3450d9470ded" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/ProductsAlcala.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/UsersAlcala.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/factura.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ProductsAlcala.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/UsersAlcala.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Conta_Alcala_txt_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUICartPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/GUICartPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUICatalogPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/GUICatalogPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUILoginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/GUILoginPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUIRegisterPanel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUIaddProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/GUIaddProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUIcustomerAdmi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/GUIcustomerAdmi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUImenuAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/GUImenuAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUIstore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/GUIstore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/logic/LogicAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/logic/LogicAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/logic/LogicCustomer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/logic/LogicCustomer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Administrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Administrator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/persistence/Bills.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/persistence/Bills.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/persistence/ImageProducts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/persistence/ImageProducts.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/persistence/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/persistence/Inventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/InventoryTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ProductsFerreteriaIdeal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/UsersFerreteriaIdeal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/VisionFerreteria.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +40,10 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "Application.Main.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -68,7 +55,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDKs",
+    "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "reference.settings.ide.settings.new.ui",
@@ -99,7 +86,7 @@
     <attachedChunks>
       <set>
         <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-78a6f59c" />
-        <option value="jdk-22-openjdk-22-4caba194b151-6fbd92ee" />
+        <option value="jdk-21.0.2-openjdk-21.0.2-f644763e9732-563d888c" />
       </set>
     </attachedChunks>
   </component>
@@ -114,6 +101,8 @@
       <workItem from="1711915763625" duration="757000" />
       <workItem from="1711996606445" duration="1406000" />
       <workItem from="1711998098395" duration="7019000" />
+      <workItem from="1712076863429" duration="27000" />
+      <workItem from="1712083321776" duration="2914000" />
     </task>
     <servers />
   </component>
@@ -122,5 +111,15 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.io.FileNotFoundException" package="java.io" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

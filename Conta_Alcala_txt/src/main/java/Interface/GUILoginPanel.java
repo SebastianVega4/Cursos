@@ -4,6 +4,7 @@ import logic.LogicCustomer;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Objects;
 
 public class GUILoginPanel extends LogicCustomer {
     private final JPanel panel;
@@ -14,7 +15,7 @@ public class GUILoginPanel extends LogicCustomer {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon backgroundImage = new ImageIcon("src/main/resources/Icons/Login.png");
+                ImageIcon backgroundImage = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons/Login.png")));
                 g.drawImage(backgroundImage.getImage(), 0, 0, getWidth(), getHeight(), this);
             }
         };
@@ -24,14 +25,14 @@ public class GUILoginPanel extends LogicCustomer {
         topPanel.setOpaque(false);
 
         //logo empresa arriba a la izquierda
-        ImageIcon imageLogo = new ImageIcon("src/main/resources/Icons/Logo.png");
+        ImageIcon imageLogo = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons/Logo.png")));
         Image imageLog = imageLogo.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
         ImageIcon scaledImageLogo = new ImageIcon(imageLog);
         JLabel imgLog = new JLabel(scaledImageLogo);
         topPanel.add(imgLog, BorderLayout.WEST);//añadir imagen con ubicaion
 
         //boton con la imgen de admin arriba a la derecha
-        ImageIcon adminIcon = new ImageIcon("src/main/resources/Icons/admin1.png");
+        ImageIcon adminIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons/admin1.png")));
         Image adminImage = adminIcon.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
         ImageIcon scaledamdinIcon = new ImageIcon(adminImage);
         JButton adminButton = new JButton("", scaledamdinIcon);

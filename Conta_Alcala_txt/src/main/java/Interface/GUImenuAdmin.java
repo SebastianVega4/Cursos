@@ -112,5 +112,4 @@ public class GUImenuAdmin extends JFrame implements ActionListener{
         	setVisible(false);
         }
     }
-
 }

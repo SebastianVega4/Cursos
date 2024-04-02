@@ -2,12 +2,10 @@ package persistence;
 
 import model.Product;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Inventory {
     private final List<Product> products;
@@ -18,7 +16,8 @@ public class Inventory {
     }
 
     public void obtainProductToTxt() throws IOException {
-        FileReader reader = new FileReader("src/main/resources/ProductsAlcala.txt");
+        InputStream inputStream = getClass().getResourceAsStream("/ProductsAlcala.txt");
+        InputStreamReader reader = new InputStreamReader(inputStream);
         BufferedReader bufferedReader = new BufferedReader(reader);
         String line;
         while ((line = bufferedReader.readLine()) != null) {
@@ -35,7 +34,7 @@ public class Inventory {
     }
 
     public void updateProductToTxt() throws IOException {
-        FileWriter writer = new FileWriter("src/main/resources/ProductsAlcala.txt", false);
+        FileWriter writer = new FileWriter(String.valueOf(getClass().getResource("/ProductsAlcala.txt")) ,false);
         for (Product product : products) {
             writer.write(product.toString() + "\n");
         }

@@ -6,6 +6,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Bills {
 	private ArrayList<Product> products;
@@ -19,7 +20,7 @@ public class Bills {
 	
 	public void obtainBills() throws IOException {
 		try {
-			FileReader reader = new FileReader("src/main/resources/Bills/" + "getFecha" + ".txt");
+			FileReader reader = new FileReader(String.valueOf(getClass().getResource("/Bills/" + "getFecha" + ".txt")));
 			BufferedReader buffered = new BufferedReader(reader);
 			String line;
 			while((line = buffered.readLine()) != null) {
