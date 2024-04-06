@@ -1,14 +1,15 @@
 package Interface;
 
-import logic.LogicCustomer;
+import logic.LogicAlcala;
 import model.Administrator;
 import model.Product;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
+import java.util.Objects;
 
-public class GUICartPanel extends LogicCustomer {
+public class GUICartPanel extends LogicAlcala {
     private final JPanel panel;
 
     public GUICartPanel(GUIstore guiStore) {
@@ -16,7 +17,7 @@ public class GUICartPanel extends LogicCustomer {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon backgroundImage = new ImageIcon("Resourses\\Icons\\Shopping.png");
+                ImageIcon backgroundImage = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons\\Shopping.png")));
                 g.drawImage(backgroundImage.getImage(), 0, 0, panel.getWidth(), panel.getHeight(), this);
             }
         };
@@ -24,7 +25,7 @@ public class GUICartPanel extends LogicCustomer {
         JPanel topPanel = new JPanel(new BorderLayout());
         topPanel.setOpaque(false);
 
-        ImageIcon imageLogo = new ImageIcon("Resourses\\Icons\\Logo.png");
+        ImageIcon imageLogo = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons\\Logo.png")));
         Image imageLog = imageLogo.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH);
         ImageIcon scaledImageLogo = new ImageIcon(imageLog);
         JLabel imgLog = new JLabel(scaledImageLogo);
@@ -55,12 +56,12 @@ public class GUICartPanel extends LogicCustomer {
         centerPanel.add(numberLabel, gbcCart);
         gbcCart.gridx++;
 
-        ImageIcon eraseIcon = new ImageIcon("Resourses\\Icons\\eraseCar.png");
+        ImageIcon eraseIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons\\eraseCar.png")));
         Image eraseImage = eraseIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
         ImageIcon scaledEraseIcon = new ImageIcon(eraseImage);
 
-        for (Product product : Administrator.getShoppingCart().getProducts()) {
-            ImageIcon imageProduct = new ImageIcon("Resourses\\Icons\\" + product.getId() + ".png");
+        for (Product product : getCart().getProducts()) {
+            ImageIcon imageProduct = new ImageIcon(getClass().getResource("/Icons\\" + product.getId() + ".png"));
             Image image = imageProduct.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
             ImageIcon scaledImageProduct = new ImageIcon(image);
             JLabel imgProduct = new JLabel(scaledImageProduct);
@@ -99,7 +100,7 @@ public class GUICartPanel extends LogicCustomer {
         gbcCart.gridx = 3;
         centerPanel.add(totalLabel, gbcCart);
 
-        ImageIcon clearIcon = new ImageIcon("Resourses\\Icons\\vaciarCar1.png");
+        ImageIcon clearIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons\\vaciarCar1.png")));
         Image clearImage = clearIcon.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
         ImageIcon scaledClaerIcon = new ImageIcon(clearImage);
         JButton clearButton = new JButton(" Vaciar  carrito \n  ", scaledClaerIcon);
@@ -111,7 +112,7 @@ public class GUICartPanel extends LogicCustomer {
         gbcCart.gridx = -1;
         centerPanel.add(clearButton, gbcCart);
 
-        ImageIcon checkoutIcon = new ImageIcon("Resourses\\Icons\\checkout.png");
+        ImageIcon checkoutIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons\\checkout.png")));
         Image checkoutImage = checkoutIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
         ImageIcon scaledCheckoutIcon = new ImageIcon(checkoutImage);
         JButton checkoutButton = new JButton("Realizar Pedido", scaledCheckoutIcon);
@@ -125,7 +126,7 @@ public class GUICartPanel extends LogicCustomer {
         JPanel buttomPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         buttomPanel.setOpaque(false);
 
-        ImageIcon backIcon = new ImageIcon("Resourses\\Icons\\back.png");
+        ImageIcon backIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons\\back.png")));
         Image backImage = backIcon.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
         ImageIcon scaledBackIcon = new ImageIcon(backImage);
         JButton backButton = new JButton("Atrás", scaledBackIcon);
@@ -139,7 +140,7 @@ public class GUICartPanel extends LogicCustomer {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon backgroundImage = new ImageIcon("Resourses\\Icons\\Shopping.png");
+                ImageIcon backgroundImage = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons\\Shopping.png")));
                 g.drawImage(backgroundImage.getImage(), 0, 0, backgroundImage.getIconWidth() + 500, backgroundImage.getIconHeight(), this);
             }
         };

@@ -1,6 +1,6 @@
 package Interface;
 
-import logic.LogicCustomer;
+import logic.LogicAlcala;
 import model.Product;
 
 import javax.swing.*;
@@ -11,7 +11,7 @@ import java.util.Objects;
 public class GUIEditProduct {
 
     private final JPanel panel;
-    private LogicCustomer lA;
+    private LogicAlcala lA;
 
     public GUIEditProduct(GUIstore guiStore, Product product, int index) {
         panel = new JPanel(new BorderLayout()) {

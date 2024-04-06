@@ -1,12 +1,12 @@
 package Interface;
 
-import logic.LogicCustomer;
+import logic.LogicAlcala;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.Objects;
 
-public class GUILoginPanel extends LogicCustomer {
+public class GUILoginPanel extends LogicAlcala {
     private final JPanel panel;
 
     public GUILoginPanel(GUIstore guiStore) {

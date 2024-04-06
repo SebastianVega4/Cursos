@@ -1,14 +1,15 @@
 package Interface;
 
-import logic.*;
+import logic.LogicAlcala;
 import model.Product;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Objects;
 
-public class GUICatalogPanel extends LogicCustomer{
+public class GUICatalogPanel extends LogicAlcala {
     private final JPanel panel;
 
     public GUICatalogPanel(GUIstore guiStore) {
@@ -16,7 +17,7 @@ public class GUICatalogPanel extends LogicCustomer{
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon backgroundImage = new ImageIcon("Resourses\\Icons\\Catal.png");
+                ImageIcon backgroundImage = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons\\Catal.png")));
                 g.drawImage(backgroundImage.getImage(), 0, 0, panel.getWidth(), panel.getHeight(), this);
             }
         };
@@ -24,7 +25,7 @@ public class GUICatalogPanel extends LogicCustomer{
         JPanel topPanel = new JPanel(new BorderLayout());
         topPanel.setOpaque(false);
 
-        ImageIcon imageLogo = new ImageIcon("Resourses\\Icons\\Logo.png");
+        ImageIcon imageLogo = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons\\Logo.png")));
         Image imageL = imageLogo.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH);
         ImageIcon scaledImageLogo = new ImageIcon(imageL);
         JLabel imgLogo = new JLabel(scaledImageLogo);
@@ -61,12 +62,12 @@ public class GUICatalogPanel extends LogicCustomer{
         gbcProduct.gridx++;
         centerPanel.add(numberLabelTitle, gbcProduct);
 
-        ImageIcon addIcon = new ImageIcon("Resourses\\Icons\\add.png");
+        ImageIcon addIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons\\add.png")));
         Image addImage = addIcon.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
         ImageIcon scaledAddIcon = new ImageIcon(addImage);
 
         for (Product product : GUIstore.getInventory().getProducts()) {
-            ImageIcon imageProduct = new ImageIcon("Resourses\\Icons\\" + product.getId() + ".png");
+            ImageIcon imageProduct = new ImageIcon(getClass().getResource("/Icons\\" + product.getId() + ".png"));
             Image image = imageProduct.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
             ImageIcon scaledImageProduct = new ImageIcon(image);
             JLabel imgProduct = new JLabel(scaledImageProduct);
@@ -137,7 +138,7 @@ public class GUICatalogPanel extends LogicCustomer{
         JPanel buttomPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         buttomPanel.setOpaque(false);
 
-        ImageIcon backIcon = new ImageIcon("Resourses\\Icons\\back.png");
+        ImageIcon backIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons\\back.png")));
         Image backImage = backIcon.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
         ImageIcon scaledBackIcon = new ImageIcon(backImage);
         JButton backButton = new JButton("Atrás", scaledBackIcon);
@@ -152,7 +153,7 @@ public class GUICatalogPanel extends LogicCustomer{
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon backgroundImage = new ImageIcon("Resourses\\Icons\\Catal.png");
+                ImageIcon backgroundImage = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons\\Catal.png")));
                 g.drawImage(backgroundImage.getImage(), 0, 0, backgroundImage.getIconWidth() + 500, backgroundImage.getIconHeight(), this);
             }
         };

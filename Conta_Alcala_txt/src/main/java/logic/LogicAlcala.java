@@ -11,15 +11,15 @@ import persistence.Inventory;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class LogicCustomer {
+public class LogicAlcala {
     private Inventory inventory = null;
     private ImageProducts ip;
     private Administrator admi;
-    ShoppingCart cart = Administrator.getShoppingCart();
+    ShoppingCart cart;
     private Order order;
     private String facture = "";
 
-    public LogicCustomer() {
+    public LogicAlcala() {
         ip = new ImageProducts();
         admi = new Administrator();
         try {
@@ -122,5 +122,9 @@ public class LogicCustomer {
         p.setStock(Integer.parseInt(stock));
 
         inventory.updateProductToTxt();
+    }
+
+    public ShoppingCart getCart() {
+        return cart;
     }
 }
