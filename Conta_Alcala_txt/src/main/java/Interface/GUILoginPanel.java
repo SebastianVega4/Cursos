@@ -6,10 +6,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Objects;
 
-public class GUILoginPanel extends LogicAlcala {
+public class GUILoginPanel {
     private final JPanel panel;
+    private final LogicAlcala logicAlcala;
 
     public GUILoginPanel(GUIstore guiStore) {
+        this.logicAlcala = guiStore.getLogicAlcala();
         //Fondo
         panel = new JPanel(new BorderLayout()) {
             @Override
@@ -85,7 +87,7 @@ public class GUILoginPanel extends LogicAlcala {
 
         //capturar evento del boton login
         loginButton.addActionListener(e -> {
-            if (loginCustomer(userField.getText(), new String(passwordField.getPassword()))) {
+            if (logicAlcala.login(userField.getText(), new String(passwordField.getPassword()))) {
                 guiStore.showCustomerMenuPanel();
             } else {
                 JOptionPane.showMessageDialog(guiStore.getFrame(), "Credenciales inválidas. Inténtalo de nuevo.");

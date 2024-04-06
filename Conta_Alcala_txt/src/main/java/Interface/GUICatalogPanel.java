@@ -9,10 +9,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Objects;
 
-public class GUICatalogPanel extends LogicAlcala {
+public class GUICatalogPanel {
     private final JPanel panel;
+    private final LogicAlcala logicAlcala;
 
     public GUICatalogPanel(GUIstore guiStore) {
+        this.logicAlcala = guiStore.getLogicAlcala();
         panel = new JPanel(new BorderLayout()) {
             @Override
             protected void paintComponent(Graphics g) {
@@ -85,7 +87,7 @@ public class GUICatalogPanel extends LogicAlcala {
             JButton addButtonModi = new JButton("Modificar", scaledAddIcon);
             addButtonModi.setFont(new Font("Serif", Font.ITALIC, 14));
             addButtonModi.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-            JButton addButton = new JButton("Agregar al Carrito", scaledAddIcon);
+            JButton addButton = new JButton("Agregar a la comanda", scaledAddIcon);
             addButton.setFont(new Font("Serif", Font.ITALIC, 14));
             addButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
@@ -105,7 +107,7 @@ public class GUICatalogPanel extends LogicAlcala {
             gbcProduct.gridx++;
             centerPanel.add(addButton, gbcProduct);
 
-            buys.addChangeListener(e -> addNumberPurchesed(product, (Integer) buys.getValue()));
+            buys.addChangeListener(e -> logicAlcala.addNumberPurchesed(product, (Integer) buys.getValue()));
 
             addButtonModi.addActionListener(e -> guiStore.showEditProdut(product,product.getId()));
 
@@ -117,7 +119,7 @@ public class GUICatalogPanel extends LogicAlcala {
                 else if ((Integer) buys.getValue() > product.getStock())
                     JOptionPane.showMessageDialog(guiStore.getFrame(), "No hay suficiente Stock del Articulo: '" + product.getNameProduct());
                 else if ((Integer) buys.getValue() > 0) {
-                    JOptionPane.showMessageDialog(guiStore.getFrame(), (addPurchased(product)));
+                    JOptionPane.showMessageDialog(guiStore.getFrame(), (logicAlcala.addPurchased(product)));
                 }
             });
 

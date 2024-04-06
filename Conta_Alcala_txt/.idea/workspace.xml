@@ -8,9 +8,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUICartPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/GUICartPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUICatalogPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/GUICatalogPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUIEditProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/GUIEditProduct.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUILoginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/GUILoginPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/logic/LogicCustomer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/logic/LogicAlcala.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUIstore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/GUIstore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/logic/LogicAlcala.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/logic/LogicAlcala.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Administrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Administrator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +109,7 @@
       <workItem from="1712158693225" duration="49000" />
       <workItem from="1712158932810" duration="596000" />
       <workItem from="1712161303919" duration="12186000" />
-      <workItem from="1712429163365" duration="10324000" />
+      <workItem from="1712429163365" duration="14519000" />
     </task>
     <servers />
   </component>

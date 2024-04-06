@@ -9,10 +9,12 @@ import java.awt.*;
 import java.io.IOException;
 import java.util.Objects;
 
-public class GUICartPanel extends LogicAlcala {
+public class GUICartPanel {
     private final JPanel panel;
+    private final LogicAlcala logicAlcala;
 
     public GUICartPanel(GUIstore guiStore) {
+        this.logicAlcala = guiStore.getLogicAlcala();
         panel = new JPanel(new BorderLayout()) {
             @Override
             protected void paintComponent(Graphics g) {
@@ -60,7 +62,7 @@ public class GUICartPanel extends LogicAlcala {
         Image eraseImage = eraseIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
         ImageIcon scaledEraseIcon = new ImageIcon(eraseImage);
 
-        for (Product product : getCart().getProducts()) {
+        for (Product product : logicAlcala.getCart().getProducts()) {
             ImageIcon imageProduct = new ImageIcon(getClass().getResource("/Icons\\" + product.getId() + ".png"));
             Image image = imageProduct.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
             ImageIcon scaledImageProduct = new ImageIcon(image);
@@ -70,9 +72,9 @@ public class GUICartPanel extends LogicAlcala {
             nameLabel.setForeground(Color.WHITE);
             JLabel priceLabel = new JLabel("$" + product.getPrice());
             priceLabel.setForeground(Color.WHITE);
-            JLabel purchased = new JLabel(String.valueOf(Administrator.getShoppingCart().getPurchased(product)));
+            JLabel purchased = new JLabel(String.valueOf(logicAlcala.getCart().getPurchased(product)));
             purchased.setForeground(Color.WHITE);
-            JButton removeButton = new JButton("Eliminar del Carrito", scaledEraseIcon);
+            JButton removeButton = new JButton("Eliminar de la Comanda", scaledEraseIcon);
             removeButton.setFont(new Font("Serif", Font.ITALIC, 12));
             removeButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
@@ -89,12 +91,12 @@ public class GUICartPanel extends LogicAlcala {
             centerPanel.add(removeButton, gbcCart);
 
             removeButton.addActionListener(e -> {
-                eraseProductCart(product);
-                JOptionPane.showMessageDialog(guiStore.getFrame(), "Producto eliminado del carrito.");
+                logicAlcala.eraseProductCart(product);
+                JOptionPane.showMessageDialog(guiStore.getFrame(), "Producto eliminado de la Comanda.");
                 guiStore.showCartPanel();
             });
         }
-        JLabel totalLabel = new JLabel("Total: $" + Administrator.getShoppingCart().calcTotal());
+        JLabel totalLabel = new JLabel("Total: $" + logicAlcala.getCart().calcTotal());
         totalLabel.setForeground(Color.WHITE);
         gbcCart.gridy++;
         gbcCart.gridx = 3;
@@ -115,7 +117,7 @@ public class GUICartPanel extends LogicAlcala {
         ImageIcon checkoutIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons\\checkout.png")));
         Image checkoutImage = checkoutIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
         ImageIcon scaledCheckoutIcon = new ImageIcon(checkoutImage);
-        JButton checkoutButton = new JButton("Realizar Pedido", scaledCheckoutIcon);
+        JButton checkoutButton = new JButton("Realizar Comanda", scaledCheckoutIcon);
         checkoutButton.setForeground(Color.WHITE);
         checkoutButton.setBackground(Color.black);
         checkoutButton.setFont(new Font("Serif", Font.ITALIC, 14));
@@ -153,14 +155,14 @@ public class GUICartPanel extends LogicAlcala {
         panel.add(buttomPanel, BorderLayout.PAGE_END);
 
         clearButton.addActionListener(e -> {
-            clearCart();
+            logicAlcala.clearCart();
             guiStore.showCustomerMenuPanel();
         });
 
         checkoutButton.addActionListener(e -> {
             try {
-                makePurchase();
-                JOptionPane.showMessageDialog(guiStore.getFrame(), getFacture());
+                logicAlcala.makePurchase();
+                JOptionPane.showMessageDialog(guiStore.getFrame(), logicAlcala.getFacture());
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }

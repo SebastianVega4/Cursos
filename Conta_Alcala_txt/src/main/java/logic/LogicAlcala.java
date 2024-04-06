@@ -14,14 +14,12 @@ import java.io.IOException;
 public class LogicAlcala {
     private Inventory inventory = null;
     private ImageProducts ip;
-    private Administrator admi;
-    ShoppingCart cart;
+    private ShoppingCart shoppingCart = new ShoppingCart();
     private Order order;
     private String facture = "";
 
     public LogicAlcala() {
         ip = new ImageProducts();
-        admi = new Administrator();
         try {
             inventory = new Inventory();
         } catch (IOException e) {
@@ -30,7 +28,7 @@ public class LogicAlcala {
     }
 
     //logica iniciar sesion
-    public boolean loginCustomer(String user, String password) {
+    public boolean login(String user, String password) {
             if (Administrator.getName().equals(user)) {
                 return Administrator.getPassword().equals(password);
 
@@ -38,38 +36,39 @@ public class LogicAlcala {
         return false;
     }
 
-    //logica saber cuantos productos compra y añadir al corrito
+    //logica saber cuantos productos compra y añadir al carrito
     public void addNumberPurchesed(Product product, int amount) {
-        cart.setPurchased(product, amount);
+        shoppingCart.setPurchased(product, amount);
     }
 
     public String addPurchased(Product product) {
-            cart.addProduct(product);
-            return "Articulo: '" + product.getNameProduct() + "' añadido al carrito.";
+        shoppingCart.addProduct(product);
+        System.out.println(shoppingCart.getProducts());
+        return "Articulo: '" + product.getNameProduct() + "' añadido al carrito.";
     }
 
     //logica eliminar producto del carrito
     public void eraseProductCart(Product product) {
-        cart.eraseProduct(product);
+        shoppingCart.eraseProduct(product);
     }
 
     //logica vaciar carrito de compra
     public void clearCart() {
-        Administrator.getShoppingCart().getProducts().clear();
+        shoppingCart.getProducts().clear();
     }
 
     //logica para realizar la compra
     public void makePurchase() throws IOException {
-        order = new Order(cart);
-        createFileFactureUser();
+        order = new Order(shoppingCart);
+        createFileFacture();
         setFacture();
         lessInventary();
         clearCart();
     }
 
     public void lessInventary() throws IOException {
-        for (Product product : Administrator.getShoppingCart().getProducts()){
-            int numberPurchased=Administrator.getShoppingCart().getPurchased(product);
+        for (Product product : shoppingCart.getProducts()){
+            int numberPurchased=shoppingCart.getPurchased(product);
             product.setStock(product.getStock()-numberPurchased);
         }
         GUIstore.getInventory().updateProductToTxt();
@@ -81,7 +80,7 @@ public class LogicAlcala {
     }
 
     public void setFacture() {
-        if (Administrator.getShoppingCart().getProducts().isEmpty()){
+        if (shoppingCart.getProducts().isEmpty()){
             facture = "Administrador" +
                     "\n No tiene productos en el carrito\n";
         }else {
@@ -95,12 +94,12 @@ public class LogicAlcala {
             }
         }
         facture += " _______________________________" + "\n \n" +
-                "Total:  $" + Administrator.getShoppingCart().calcTotal()
+                "Total:  $" + shoppingCart.calcTotal()
                 + "\n                 ¡Gracias por preferirnos!";
     }
 
     //crear archivo por cada factura diaria
-    public void createFileFactureUser() throws IOException {
+    public void createFileFacture() throws IOException {
         FileWriter writerFactureUser = new FileWriter("Resourses\\Bills\\" + "getFecha" + ".txt", true);
 
         order.getShoppingCart().getProducts().forEach(ordenes -> {
@@ -125,6 +124,6 @@ public class LogicAlcala {
     }
 
     public ShoppingCart getCart() {
-        return cart;
+        return shoppingCart;
     }
 }

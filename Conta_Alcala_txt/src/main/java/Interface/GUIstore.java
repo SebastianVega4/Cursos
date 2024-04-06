@@ -1,5 +1,6 @@
 package Interface;
 
+import logic.LogicAlcala;
 import model.Product;
 import persistence.Inventory;
 
@@ -10,6 +11,7 @@ import java.io.IOException;
 public class GUIstore {
     private static Inventory inventory = null;
     private final JFrame frame;
+    private final LogicAlcala logicAlcala = new LogicAlcala();
 
     public GUIstore() throws IOException {
         frame = new JFrame("Restaurante Alcala");
@@ -21,6 +23,10 @@ public class GUIstore {
         frame.setLayout(new BorderLayout());
 
         inventory = new Inventory();
+    }
+
+    public LogicAlcala getLogicAlcala() {
+        return logicAlcala;
     }
 
     public static Inventory getInventory() {
