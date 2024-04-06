@@ -5,14 +5,29 @@ import model.Administrator;
 import model.Order;
 import model.Product;
 import model.ShoppingCart;
+import persistence.ImageProducts;
+import persistence.Inventory;
 
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class LogicCustomer {
+    private Inventory inventory = null;
+    private ImageProducts ip;
+    private Administrator admi;
     ShoppingCart cart = Administrator.getShoppingCart();
     private Order order;
     private String facture = "";
+
+    public LogicCustomer() {
+        ip = new ImageProducts();
+        admi = new Administrator();
+        try {
+            inventory = new Inventory();
+        } catch (IOException e) {
+            System.out.println("ups algo paso");
+        }
+    }
 
     //logica iniciar sesion
     public boolean loginCustomer(String user, String password) {
@@ -84,7 +99,7 @@ public class LogicCustomer {
                 + "\n                 ¡Gracias por preferirnos!";
     }
 
-    //crear archivo por cada usuario(factura)
+    //crear archivo por cada factura diaria
     public void createFileFactureUser() throws IOException {
         FileWriter writerFactureUser = new FileWriter("Resourses\\Bills\\" + "getFecha" + ".txt", true);
 
@@ -97,5 +112,15 @@ public class LogicCustomer {
             }
         });
         writerFactureUser.close();
+    }
+
+    public void editProduct(String name, String description, String price, String stock, int index) throws IOException {
+        Product p = inventory.getProducts().get(index);
+        p.setNameProduct(name);
+        p.setDescription(description);
+        p.setPrice(Double.parseDouble(price));
+        p.setStock(Integer.parseInt(stock));
+
+        inventory.updateProductToTxt();
     }
 }

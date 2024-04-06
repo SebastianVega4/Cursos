@@ -1,6 +1,6 @@
 package Interface;
 
-import logic.LogicCustomer;
+import logic.*;
 import model.Product;
 
 import javax.swing.*;
@@ -8,7 +8,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class GUICatalogPanel extends LogicCustomer {
+public class GUICatalogPanel extends LogicCustomer{
     private final JPanel panel;
 
     public GUICatalogPanel(GUIstore guiStore) {
@@ -46,6 +46,8 @@ public class GUICatalogPanel extends LogicCustomer {
         priceLabelTitle.setForeground(Color.WHITE);
         JLabel numberLabelTitle = new JLabel("Cantidad");
         numberLabelTitle.setForeground(Color.WHITE);
+        JLabel editLabelTitle = new JLabel("Editar");
+        editLabelTitle.setForeground(Color.WHITE);
 
         gbcProduct.gridy++;
         gbcProduct.gridx++;
@@ -79,6 +81,9 @@ public class GUICatalogPanel extends LogicCustomer {
             priceLabel.setForeground(Color.WHITE);
             priceLabel.setFont(new Font("Serif", Font.ITALIC, 12));
             JSpinner buys = new JSpinner();
+            JButton addButtonModi = new JButton("Modificar", scaledAddIcon);
+            addButtonModi.setFont(new Font("Serif", Font.ITALIC, 14));
+            addButtonModi.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
             JButton addButton = new JButton("Agregar al Carrito", scaledAddIcon);
             addButton.setFont(new Font("Serif", Font.ITALIC, 14));
             addButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -95,9 +100,13 @@ public class GUICatalogPanel extends LogicCustomer {
             gbcProduct.gridx++;
             centerPanel.add(buys, gbcProduct);
             gbcProduct.gridx++;
+            centerPanel.add(addButtonModi, gbcProduct);
+            gbcProduct.gridx++;
             centerPanel.add(addButton, gbcProduct);
 
-            //buys.addChangeListener(e -> addNumberPurchesed(product, (Integer) buys.getValue()));
+            buys.addChangeListener(e -> addNumberPurchesed(product, (Integer) buys.getValue()));
+
+            addButtonModi.addActionListener(e -> guiStore.showEditProdut(product,product.getId()));
 
             addButton.addActionListener(e -> {
                 if ((Integer) buys.getValue() == 0)
@@ -107,7 +116,7 @@ public class GUICatalogPanel extends LogicCustomer {
                 else if ((Integer) buys.getValue() > product.getStock())
                     JOptionPane.showMessageDialog(guiStore.getFrame(), "No hay suficiente Stock del Articulo: '" + product.getNameProduct());
                 else if ((Integer) buys.getValue() > 0) {
-                    //JOptionPane.showMessageDialog(guiStore.getFrame(), (addPurchased(product)));
+                    JOptionPane.showMessageDialog(guiStore.getFrame(), (addPurchased(product)));
                 }
             });
 

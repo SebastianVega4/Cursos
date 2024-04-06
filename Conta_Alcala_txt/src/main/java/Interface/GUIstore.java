@@ -1,6 +1,6 @@
 package Interface;
 
-import model.Administrator;
+import model.Product;
 import persistence.Inventory;
 
 import javax.swing.*;
@@ -12,7 +12,7 @@ public class GUIstore {
     private static Inventory inventory = null;
 
     public GUIstore() throws IOException {
-        frame = new JFrame("Ferreteria ideal");
+        frame = new JFrame("Restaurante Alcala");
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(950, 750);
@@ -24,35 +24,43 @@ public class GUIstore {
     }
 
     public void showLoginPanel() {
-        GUILoginPanel GUILoginPanel = new GUILoginPanel(this);
+        GUILoginPanel gUILoginPanel = new GUILoginPanel(this);
         frame.getContentPane().removeAll();
-        frame.getContentPane().add(GUILoginPanel.getPanel(), BorderLayout.CENTER);
+        frame.getContentPane().add(gUILoginPanel.getPanel(), BorderLayout.CENTER);
         frame.revalidate();
         frame.repaint();
     }
 
     public void showCustomerMenuPanel() {
-        GUICustomerMenuPanel GUICustomerMenuPanel = new GUICustomerMenuPanel(this);
+        GUIMenuPanel gUIMenuPanel = new GUIMenuPanel(this);
         frame.getContentPane().removeAll();
-        frame.getContentPane().add(GUICustomerMenuPanel.getPanel(), BorderLayout.CENTER);
+        frame.getContentPane().add(gUIMenuPanel.getPanel(), BorderLayout.CENTER);
         frame.revalidate();
         frame.repaint();
     }
 
     public void showCatalogPanel() {
-        GUICatalogPanel GUICatalogPanel =new GUICatalogPanel(this);
+        GUICatalogPanel gUICatalogPanel =new GUICatalogPanel(this);
         frame.getContentPane().removeAll();
-        frame.getContentPane().add(GUICatalogPanel.getPanel(), BorderLayout.CENTER);
+        frame.getContentPane().add(gUICatalogPanel.getPanel(), BorderLayout.CENTER);
         frame.revalidate();
         frame.repaint();
     }
     public void showCartPanel() {
-        GUICartPanel GUICartPanel =new GUICartPanel(this);
+        GUICartPanel gUICartPanel =new GUICartPanel(this);
         frame.getContentPane().removeAll();
-        frame.getContentPane().add(GUICartPanel.getPanel(), BorderLayout.CENTER);
+        frame.getContentPane().add(gUICartPanel.getPanel(), BorderLayout.CENTER);
         frame.revalidate();
         frame.repaint();
     }
+    public void showEditProdut(Product product, int index) {
+        GUIEditProduct gUIEditPanel =new GUIEditProduct(this,product, index);
+        frame.getContentPane().removeAll();
+        frame.getContentPane().add(gUIEditPanel.getPanel(), BorderLayout.CENTER);
+        frame.revalidate();
+        frame.repaint();
+    }
+
     public JFrame getFrame() {
         return frame;
     }

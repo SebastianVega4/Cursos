@@ -5,22 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b046a45-0cf1-4a6e-8299-3450d9470ded" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Conta_Alcala_txt_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUICatalogPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/GUICatalogPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUICustomerMenuPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/GUIMenuPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUILoginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/GUILoginPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUImenuAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/GUImenuAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/persistence/Bills.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/persistence/Bills.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/persistence/ImageProducts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/persistence/ImageProducts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/persistence/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/persistence/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUIaddProduct.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUIadmin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUIcustomerAdmi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUIcustomerDetails.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUIeditProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/GUIEditProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUIinventoryAdmi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUImenuAdmin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUIstore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/GUIstore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/JLabelTableCellRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/logic/LogicAdmin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/logic/LogicCustomer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/logic/LogicCustomer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -36,32 +47,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.Main.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/mint/Universidad/Cursos/Conta_Alcala_txt",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.new.ui",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/A372144/Downloads/Git/Cursos/Conta_Alcala_txt&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Interface.Main" />
@@ -85,8 +96,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-78a6f59c" />
-        <option value="jdk-21.0.2-openjdk-21.0.2-f644763e9732-563d888c" />
+        <option value="jdk-21.0.1-openjdk-21.0.1-3183f394aec4-7d648f2c" />
+        <option value="jdk-21.0.2-openjdk-21.0.2-3183f394aec4-aba903c2" />
       </set>
     </attachedChunks>
   </component>
@@ -103,6 +114,10 @@
       <workItem from="1711998098395" duration="7019000" />
       <workItem from="1712076863429" duration="27000" />
       <workItem from="1712083321776" duration="2914000" />
+      <workItem from="1712158693225" duration="49000" />
+      <workItem from="1712158932810" duration="596000" />
+      <workItem from="1712161303919" duration="12186000" />
+      <workItem from="1712429163365" duration="7657000" />
     </task>
     <servers />
   </component>

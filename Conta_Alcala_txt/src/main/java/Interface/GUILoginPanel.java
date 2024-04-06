@@ -31,29 +31,19 @@ public class GUILoginPanel extends LogicCustomer {
         JLabel imgLog = new JLabel(scaledImageLogo);
         topPanel.add(imgLog, BorderLayout.WEST);//añadir imagen con ubicaion
 
-        //boton con la imgen de admin arriba a la derecha
-        ImageIcon adminIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons/admin1.png")));
-        Image adminImage = adminIcon.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
-        ImageIcon scaledamdinIcon = new ImageIcon(adminImage);
-        JButton adminButton = new JButton("", scaledamdinIcon);
-        adminButton.setOpaque(false); // Hace que el botón sea transparente
-        adminButton.setContentAreaFilled(false); // Quita el relleno del botón
-        adminButton.setBorderPainted(false);//no añadir borde
-        adminButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));//poner cursor de mano
-        topPanel.add(adminButton, BorderLayout.EAST);
-
         // Panel Center para login
         JPanel loginPanel = new JPanel();
         loginPanel.setOpaque(false);
         loginPanel.setLayout(new GridLayout(4, 1));
 
-//panel grid para cada uno de los labels y field en grupos
+        //panel grid para cada uno de los labels y field en grupos
         JPanel emailPanel = new JPanel(new GridBagLayout());
         emailPanel.setOpaque(false);
-        JLabel userLabel = new JLabel("User:");
+        JLabel userLabel = new JLabel("Usuario:");
         userLabel.setForeground(Color.WHITE);
         userLabel.setFont(new Font("Serif", Font.ITALIC, 18));
         JTextField userField = new JTextField(24);
+        userField.setText("admin");
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 0;
@@ -100,12 +90,6 @@ public class GUILoginPanel extends LogicCustomer {
             } else {
                 JOptionPane.showMessageDialog(guiStore.getFrame(), "Credenciales inválidas. Inténtalo de nuevo.");
             }
-        });
-
-        //Capturar evento boton Administrador
-        adminButton.addActionListener(e -> {
-            guiStore.getFrame().setVisible(false);
-            new GUIadmin();
         });
     }
 
