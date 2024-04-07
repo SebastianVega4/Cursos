@@ -1,1 +1,0 @@
-articulo 1 // cantidad // precio // total

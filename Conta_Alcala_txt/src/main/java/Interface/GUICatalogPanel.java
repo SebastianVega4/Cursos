@@ -147,6 +147,16 @@ public class GUICatalogPanel {
         JPanel buttomPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         buttomPanel.setOpaque(false);
 
+        ImageIcon carIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons\\carrito.png")));
+        Image carImage = carIcon.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
+        ImageIcon scaledcarIcon = new ImageIcon(carImage);
+        JButton carButton = new JButton("Comanda", scaledcarIcon);
+        carButton.setForeground(Color.WHITE);
+        carButton.setBackground(Color.black);
+        carButton.setFont(new Font("Serif", Font.ITALIC, 14));
+        carButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        buttomPanel.add(carButton);
+
         ImageIcon backIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons\\back.png")));
         Image backImage = backIcon.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
         ImageIcon scaledBackIcon = new ImageIcon(backImage);
@@ -175,6 +185,7 @@ public class GUICatalogPanel {
         panel.add(buttomPanel, BorderLayout.PAGE_END);
 
         backButton.addActionListener(e -> guiStore.showCustomerMenuPanel());
+        carButton.addActionListener(e-> guiStore.showCartPanel());
     }
 
     public JPanel getPanel() {

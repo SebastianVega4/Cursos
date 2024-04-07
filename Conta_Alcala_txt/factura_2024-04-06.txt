@@ -1,0 +1,15 @@
+------------------------------------------
+             Administrator
+    su facura se ha generado con exito 
+ - _______________________________ - 
+Producto:  Cinta aislante
+Cantidad: 1
+Precio:  5400.0
+ - _______________________________ - 
+Producto:  Cinta enmascarar
+Cantidad: 2
+Precio:  3800.0
+ _______________________________Total:  $13000.0
+ 
+
+ 

@@ -111,7 +111,7 @@ public class GUICartPanel {
         ImageIcon clearIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons\\vaciarCar1.png")));
         Image clearImage = clearIcon.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
         ImageIcon scaledClaerIcon = new ImageIcon(clearImage);
-        JButton clearButton = new JButton(" Vaciar  carrito \n  ", scaledClaerIcon);
+        JButton clearButton = new JButton(" Vaciar  Comanda \n  ", scaledClaerIcon);
         clearButton.setFont(new Font("Serif", Font.ITALIC, 12));
         clearButton.setForeground(Color.WHITE);
         clearButton.setBackground(Color.black);

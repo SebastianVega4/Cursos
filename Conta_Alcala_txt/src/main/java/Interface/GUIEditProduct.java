@@ -2,9 +2,12 @@ package Interface;
 
 import logic.LogicAlcala;
 import model.Product;
+import org.w3c.dom.Text;
 import persistence.Inventory;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.io.IOException;
 import java.util.Objects;
@@ -36,33 +39,80 @@ public class GUIEditProduct {
         JLabel imgLogo = new JLabel(scaledImageLogo);
         topPanel.add(imgLogo, BorderLayout.WEST);
 
-
         JPanel centerPanel = new JPanel(new GridBagLayout());
         centerPanel.setOpaque(false);
+        centerPanel.setBorder(new TitledBorder(null, "Edit Product", TitledBorder.CENTER, TitledBorder.TOP));
 
-    	JLabel lblName = new JLabel("Name:");
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(5, 5, 5, 5);
+
+        JLabel lblName = new JLabel("Name:");
+        lblName.setForeground(Color.white);
+        lblName.setFont(new Font("Arial", Font.BOLD, 14));
         JLabel JLabellblDescription = new JLabel("Description:");
+        JLabellblDescription.setForeground(Color.white);
+        JLabellblDescription.setFont(new Font("Arial", Font.BOLD, 14));
         JLabel lblPrice = new JLabel("Price:");
+        lblPrice.setForeground(Color.white);
+        lblPrice.setFont(new Font("Arial", Font.BOLD, 14));
         JLabel lblStock = new JLabel("Stock:");
-        JTextField txtName = new JTextField(product.getNameProduct(), 10);
-        JTextField txtDescription = new JTextField(product.getDescription(), 10);
-        JTextField txtPrice = new JTextField(String.valueOf(product.getPrice()), 10);
+        lblStock.setForeground(Color.white);
+        lblStock.setFont(new Font("Arial", Font.BOLD, 14));
+        JTextField txtName = new JTextField(product.getNameProduct(),2);
+        txtName.setColumns(20); // Ajusta el tamaño a 20 columnas
+        txtName.setBorder(centerPanel.getBorder());
+        JTextField txtDescription = new JTextField(product.getDescription(),24);
+        txtDescription.setColumns(20); // Ajusta el tamaño a 20 columnas
+        JTextField txtPrice = new JTextField(String.valueOf(product.getPrice()),24);
+        txtPrice.setColumns(20); // Ajusta el tamaño a 20 columnas
         JSpinner spnStock = new JSpinner(new SpinnerNumberModel(product.getStock(), 0, Integer.MAX_VALUE, 1));
-        centerPanel.setLayout(new GridLayout(5, 2));
-        centerPanel.add(lblName);
-        centerPanel.add(txtName);
-        centerPanel.add(JLabellblDescription);
-        centerPanel.add(txtDescription);
-        centerPanel.add(lblPrice);
-        centerPanel.add(txtPrice);
-        centerPanel.add(lblStock);
-        centerPanel.add(spnStock);
 
+        // Agregar componentes al panel usando GridBagConstraints
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        centerPanel.add(lblName, gbc);
+
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        centerPanel.add(txtName, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        centerPanel.add(JLabellblDescription, gbc);
+
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        centerPanel.add(txtDescription, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        centerPanel.add(lblPrice, gbc);
+
+        gbc.gridx = 1;
+        gbc.gridy = 2;
+        centerPanel.add(txtPrice, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        centerPanel.add(lblStock, gbc);
+
+        gbc.gridx = 1;
+        gbc.gridy = 3;
+        centerPanel.add(spnStock, gbc);
 
         JPanel buttonPanel = new JPanel();
+        buttonPanel.setBackground(Color.black);
 
         JButton btnSave = new JButton("Save");
+        btnSave.setForeground(Color.WHITE);
+        btnSave.setBackground(Color.black);
+        btnSave.setFont(new Font("Serif", Font.ITALIC, 14));
+        btnSave.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         JButton btnCancel = new JButton("Cancel");
+        btnCancel.setForeground(Color.WHITE);
+        btnCancel.setBackground(Color.black);
+        btnCancel.setFont(new Font("Serif", Font.ITALIC, 14));
+        btnCancel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         buttonPanel.add(btnSave);
         buttonPanel.add(btnCancel);
 

@@ -40,7 +40,6 @@ public class LogicAlcala {
 
     public String addPurchased(Product product) {
         shoppingCart.addProduct(product);
-        System.out.println(shoppingCart.getProducts());
         return "Articulo: '" + product.getNameProduct() + "' añadido al carrito.";
     }
 
@@ -78,19 +77,20 @@ public class LogicAlcala {
 
     public void setFacture() {
         if (shoppingCart.getProducts().isEmpty()){
-            facture = "Administrador" +
+            facture = "        Administrador" +
                     "\n No tiene productos en el carrito\n";
         }else {
-            facture = "Administrator"+
-                    "\n su facura se ha generado con exito \n";
+            facture = "-----------------------------------------------\n"
+                    +"             Administrator"
+                    + "\n    su facura se ha generado con exito \n";
             for (Product orderliness : order.getShoppingCart().getProducts()) {
-                facture += " _______________________________" + "\n" + "Producto:  " + orderliness.getNameProduct() + "\n"
-                        + "Cantidad: " + order.getShoppingCart().getPurchased(orderliness) + "\n"
-                        + "Precio:  " + orderliness.getPrice() + "\n";
+                facture += " - _________________________________ - " + "\n"
+                        + "    Producto:  " + orderliness.getNameProduct() + "\n"
+                        + "    Cantidad: " + order.getShoppingCart().getPurchased(orderliness) + "\n"
+                        + "    Precio:  " + orderliness.getPrice() + "\n";
             }
         }
-        facture += " _______________________________" + "\n \n" +
-                "Total:  $" + shoppingCart.calcTotal();
+        facture += " _______________________________" +  "         Total:  $" + shoppingCart.calcTotal()+ "\n \n";
     }
 
     //crear archivo por cada factura diaria

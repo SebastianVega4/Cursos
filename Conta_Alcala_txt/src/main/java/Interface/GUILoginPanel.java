@@ -85,6 +85,9 @@ public class GUILoginPanel {
         panel.add(loginPanel, BorderLayout.CENTER);
         panel.add(buttomPanel, BorderLayout.SOUTH);
 
+        userField.addActionListener(e -> loginButton.doClick()); // simula un clic en el botón de inicio de sesión cuando se presiona Enter en el campo de usuario
+        passwordField.addActionListener(e -> loginButton.doClick());
+
         //capturar evento del boton login
         loginButton.addActionListener(e -> {
             if (logicAlcala.login(userField.getText(), new String(passwordField.getPassword()))) {
