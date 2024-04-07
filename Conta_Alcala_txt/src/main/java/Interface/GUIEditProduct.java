@@ -2,6 +2,7 @@ package Interface;
 
 import logic.LogicAlcala;
 import model.Product;
+import persistence.Inventory;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,9 +12,12 @@ import java.util.Objects;
 public class GUIEditProduct {
 
     private final JPanel panel;
-    private LogicAlcala lA;
+    private final LogicAlcala logicAlcala;
+    private final Inventory inventory;
 
     public GUIEditProduct(GUIstore guiStore, Product product, int index) {
+        this.logicAlcala = guiStore.getLogicAlcala();
+        this.inventory = guiStore.getInventory();
         panel = new JPanel(new BorderLayout()) {
             @Override
             protected void paintComponent(Graphics g) {
@@ -67,20 +71,31 @@ public class GUIEditProduct {
         panel.add(buttonPanel, BorderLayout.PAGE_END);
 
         btnSave.addActionListener(e -> {
-        // Guardar los cambios en el producto
-        product.setNameProduct(txtName.getText());
-        product.setDescription(txtDescription.getText());
-        product.setPrice(Double.parseDouble(txtPrice.getText()));
-        product.setStock((int) spnStock.getValue());
+            // Actualizar el producto en la base de datos
+            product.setNameProduct(txtName.getText());
+            product.setDescription(txtDescription.getText());
+            product.setPrice(Double.parseDouble(txtPrice.getText()));
+            product.setStock((int) spnStock.getValue());
 
-        // Actualizar el producto en la base de datos
-            try {
-                lA.editProduct(txtName.getText(),txtDescription.getText(),txtPrice.getText(), (String) spnStock.getValue(),index);
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
+            if (txtName.getText().isEmpty() || txtDescription.getText().isEmpty() || txtPrice.getText().isEmpty()
+                    || txtPrice.getText().equals("0")) {
+                JOptionPane.showMessageDialog(null, "Ingrese todos los datos");
+            } else if ((int) spnStock.getValue() < 1) {
+                JOptionPane.showMessageDialog(null, "Ingrese un stok mayor a 0");
+            } else {
+                try {
+                    Double.parseDouble(txtPrice.getText());
+                    inventory.editProduct(txtName.getText(), txtDescription.getText(), txtPrice.getText(), String.valueOf(spnStock.getValue()), index);
+                    JOptionPane.showMessageDialog(null, "Producto Editado");
+                    guiStore.showCatalogPanel();
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "Ingrese un valor num�rico v�lido en el campo de precio");
+                } catch (IOException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
             }
-            JOptionPane.showMessageDialog(null, "Product edited successfully");
-    	});
+        });
 
         btnCancel.addActionListener(e ->guiStore.showCatalogPanel());
     }

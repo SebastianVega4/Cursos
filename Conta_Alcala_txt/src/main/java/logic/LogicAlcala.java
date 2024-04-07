@@ -8,11 +8,11 @@ import model.ShoppingCart;
 import persistence.ImageProducts;
 import persistence.Inventory;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class LogicAlcala {
-    private Inventory inventory = null;
     private ImageProducts ip;
     private ShoppingCart shoppingCart = new ShoppingCart();
     private Order order;
@@ -20,11 +20,6 @@ public class LogicAlcala {
 
     public LogicAlcala() {
         ip = new ImageProducts();
-        try {
-            inventory = new Inventory();
-        } catch (IOException e) {
-            System.out.println("ups algo paso");
-        }
     }
 
     //logica iniciar sesion
@@ -100,28 +95,31 @@ public class LogicAlcala {
 
     //crear archivo por cada factura diaria
     public void createFileFacture() throws IOException {
-        FileWriter writerFactureUser = new FileWriter("Resourses\\Bills\\" + "getFecha" + ".txt", true);
+        // Obtén el directorio actual
+        String currentDir = System.getProperty("user.dir");
 
-        order.getShoppingCart().getProducts().forEach(ordenes -> {
-            try {
-                writerFactureUser.write(ordenes.getNameProduct() + "," + order.getShoppingCart().getPurchased(ordenes) + ","
-                        + ordenes.getPrice() + "," + order.getShoppingCart().calcTotalForProduct(ordenes) + "\n");
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        });
-        writerFactureUser.close();
+        // Crea un archivo en el directorio actual con el nombre "getFecha.txt"
+        File file = new File(currentDir, "getFecha.txt");
+
+        // Verifica si el archivo existe
+        if (!file.exists()) {
+            // Si no existe, crea el archivo
+            file.createNewFile();
+        }
+
+        // Escribe en el archivo
+        try (FileWriter writerFactureUser = new FileWriter(file, true)) {
+            order.getShoppingCart().getProducts().forEach(ordenes -> {
+                try {
+                    writerFactureUser.write(ordenes.getNameProduct() + "," + order.getShoppingCart().getPurchased(ordenes) + ","
+                            + ordenes.getPrice() + "," + order.getShoppingCart().calcTotalForProduct(ordenes) + "\n");
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            });
+        }
     }
 
-    public void editProduct(String name, String description, String price, String stock, int index) throws IOException {
-        Product p = inventory.getProducts().get(index);
-        p.setNameProduct(name);
-        p.setDescription(description);
-        p.setPrice(Double.parseDouble(price));
-        p.setStock(Integer.parseInt(stock));
-
-        inventory.updateProductToTxt();
-    }
 
     public ShoppingCart getCart() {
         return shoppingCart;
