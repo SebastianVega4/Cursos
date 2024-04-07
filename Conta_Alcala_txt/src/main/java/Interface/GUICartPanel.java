@@ -63,7 +63,13 @@ public class GUICartPanel {
         ImageIcon scaledEraseIcon = new ImageIcon(eraseImage);
 
         for (Product product : logicAlcala.getCart().getProducts()) {
-            ImageIcon imageProduct = new ImageIcon(getClass().getResource("/Icons\\" + product.getId() + ".png"));
+            ImageIcon imageProduct;
+            try {
+                imageProduct = new ImageIcon(getClass().getResource("/Icons/" + product.getId() + ".png"));
+            } catch (NullPointerException e) {
+                // Si no se encuentra la imagen, usa una imagen predeterminada
+                imageProduct = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons/default.png")));
+            }
             Image image = imageProduct.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
             ImageIcon scaledImageProduct = new ImageIcon(image);
             JLabel imgProduct = new JLabel(scaledImageProduct);

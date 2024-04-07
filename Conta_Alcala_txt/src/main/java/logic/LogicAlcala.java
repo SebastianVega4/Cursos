@@ -11,6 +11,8 @@ import persistence.Inventory;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class LogicAlcala {
     private ImageProducts ip;
@@ -55,8 +57,8 @@ public class LogicAlcala {
     //logica para realizar la compra
     public void makePurchase() throws IOException {
         order = new Order(shoppingCart);
-        createFileFacture();
         setFacture();
+        createFileFacture();
         lessInventary();
         clearCart();
     }
@@ -80,8 +82,7 @@ public class LogicAlcala {
                     "\n No tiene productos en el carrito\n";
         }else {
             facture = "Administrator"+
-                    " su facura se ha generado con exito \n"
-                    + "    ¡Tu ferreteria de Confianza!\n";
+                    "\n su facura se ha generado con exito \n";
             for (Product orderliness : order.getShoppingCart().getProducts()) {
                 facture += " _______________________________" + "\n" + "Producto:  " + orderliness.getNameProduct() + "\n"
                         + "Cantidad: " + order.getShoppingCart().getPurchased(orderliness) + "\n"
@@ -89,8 +90,7 @@ public class LogicAlcala {
             }
         }
         facture += " _______________________________" + "\n \n" +
-                "Total:  $" + shoppingCart.calcTotal()
-                + "\n                 ¡Gracias por preferirnos!";
+                "Total:  $" + shoppingCart.calcTotal();
     }
 
     //crear archivo por cada factura diaria
@@ -98,8 +98,13 @@ public class LogicAlcala {
         // Obtén el directorio actual
         String currentDir = System.getProperty("user.dir");
 
-        // Crea un archivo en el directorio actual con el nombre "getFecha.txt"
-        File file = new File(currentDir, "getFecha.txt");
+        // Obtén la fecha actual y formateala en el formato deseado
+        LocalDate currentDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String formattedDate = currentDate.format(formatter);
+
+        // Crea un archivo en el directorio actual con el nombre "factura_{fecha}.txt"
+        File file = new File(currentDir, "factura_" + formattedDate + ".txt");
 
         // Verifica si el archivo existe
         if (!file.exists()) {
@@ -108,15 +113,12 @@ public class LogicAlcala {
         }
 
         // Escribe en el archivo
-        try (FileWriter writerFactureUser = new FileWriter(file, true)) {
-            order.getShoppingCart().getProducts().forEach(ordenes -> {
-                try {
-                    writerFactureUser.write(ordenes.getNameProduct() + "," + order.getShoppingCart().getPurchased(ordenes) + ","
-                            + ordenes.getPrice() + "," + order.getShoppingCart().calcTotalForProduct(ordenes) + "\n");
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            });
+        try (FileWriter writerFacture = new FileWriter(file, true)) {
+            try {
+                writerFacture.write(facture+"\n \n");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 

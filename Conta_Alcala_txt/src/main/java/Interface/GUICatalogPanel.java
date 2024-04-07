@@ -69,7 +69,13 @@ public class GUICatalogPanel {
         ImageIcon scaledAddIcon = new ImageIcon(addImage);
 
         for (Product product : GUIstore.getInventory().getProducts()) {
-            ImageIcon imageProduct = new ImageIcon(getClass().getResource("/Icons\\" + product.getId() + ".png"));
+            ImageIcon imageProduct;
+            try {
+                imageProduct = new ImageIcon(getClass().getResource("/Icons/" + product.getId() + ".png"));
+            } catch (NullPointerException e) {
+                // Si no se encuentra la imagen, usa una imagen predeterminada
+                imageProduct = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons/default.png")));
+            }
             Image image = imageProduct.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
             ImageIcon scaledImageProduct = new ImageIcon(image);
             JLabel imgProduct = new JLabel(scaledImageProduct);
@@ -123,14 +129,15 @@ public class GUICatalogPanel {
                 }
             });
 
+            ImageIcon finalImageProduct = imageProduct;
             imgProduct.addMouseListener(new MouseAdapter() {
                 public void mouseEntered(MouseEvent evt) {
-                    Image image = imageProduct.getImage().getScaledInstance(130, 190, Image.SCALE_SMOOTH);
+                    Image image = finalImageProduct.getImage().getScaledInstance(130, 190, Image.SCALE_SMOOTH);
                     ImageIcon scaledImageProduct = new ImageIcon(image);
                     imgProduct.setIcon(scaledImageProduct);
                 }
                 public void mouseExited(MouseEvent evt) {
-                    Image image = imageProduct.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+                    Image image = finalImageProduct.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
                     ImageIcon scaledImageProduct = new ImageIcon(image);
                     imgProduct.setIcon(scaledImageProduct);
                 }
