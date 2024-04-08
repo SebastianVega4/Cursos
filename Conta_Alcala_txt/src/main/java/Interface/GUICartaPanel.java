@@ -82,6 +82,10 @@ public class GUICatalogPanel {
         Image addImage = addIcon.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
         ImageIcon scaledAddIcon = new ImageIcon(addImage);
 
+        ImageIcon editIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons/edit.png")));
+        Image editImage = editIcon.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
+        ImageIcon scalededitIcon = new ImageIcon(editImage);
+
         filteredProducts = new ArrayList<>(GUIstore.getInventory().getProducts());
 
         for (Product product : filteredProducts) {
@@ -107,9 +111,11 @@ public class GUICatalogPanel {
             priceLabel.setFont(new Font("Serif", Font.ITALIC, 12));
             JSpinner buys = new JSpinner();
             buys.setValue(1);
-            JButton addButtonModi = new JButton("Modificar", scaledAddIcon);
+
+            JButton addButtonModi = new JButton("Modificar", scalededitIcon);
             addButtonModi.setFont(new Font("Serif", Font.ITALIC, 14));
             addButtonModi.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
             JButton addButton = new JButton("Agregar a la comanda", scaledAddIcon);
             addButton.setFont(new Font("Serif", Font.ITALIC, 14));
             addButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -136,11 +142,11 @@ public class GUICatalogPanel {
 
             addButton.addActionListener(e -> {
                 if ((Integer) buys.getValue() == 0)
-                    JOptionPane.showMessageDialog(guiStore.getFrame(), "Ingrese alguna cantidad.");
+                    JOptionPane.showMessageDialog(guiStore.getFrame(), "Ingrese alguna cantidad.", "Error", JOptionPane.ERROR_MESSAGE);
                 else if ((Integer) buys.getValue() < 0)
-                    JOptionPane.showMessageDialog(guiStore.getFrame(), "No se pueden añadir al carrito cantidades negativas.");
+                    JOptionPane.showMessageDialog(guiStore.getFrame(), "No se pueden añadir al carrito cantidades negativas.", "Error", JOptionPane.ERROR_MESSAGE);
                 else if ((Integer) buys.getValue() > product.getStock())
-                    JOptionPane.showMessageDialog(guiStore.getFrame(), "No hay suficiente Stock del Articulo: '" + product.getNameProduct());
+                    JOptionPane.showMessageDialog(guiStore.getFrame(), "No hay suficiente Stock del Articulo: '" + product.getNameProduct(), "Error", JOptionPane.ERROR_MESSAGE);
                 else if ((Integer) buys.getValue() > 0) {
                     logicAlcala.addNumberPurchesed(product, (Integer) buys.getValue());
                     JOptionPane.showMessageDialog(guiStore.getFrame(), (logicAlcala.addPurchased(product)));
@@ -171,7 +177,7 @@ public class GUICatalogPanel {
         ImageIcon scaledcarIcon = new ImageIcon(carImage);
         JButton carButton = new JButton("Comanda", scaledcarIcon);
         carButton.setForeground(Color.WHITE);
-        carButton.setBackground(Color.black);
+        carButton.setBackground(Color.GRAY);
         carButton.setFont(new Font("Serif", Font.ITALIC, 14));
         carButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         buttomPanel.add(carButton);
@@ -252,9 +258,11 @@ public class GUICatalogPanel {
                 priceLabel.setFont(new Font("Serif", Font.ITALIC, 12));
                 JSpinner buys = new JSpinner();
                 buys.setValue(1);
-                JButton addButtonModi = new JButton("Modificar", scaledAddIcon);
+
+                JButton addButtonModi = new JButton("Modificar", scalededitIcon);
                 addButtonModi.setFont(new Font("Serif", Font.ITALIC, 14));
                 addButtonModi.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
                 JButton addButton = new JButton("Agregar a la comanda", scaledAddIcon);
                 addButton.setFont(new Font("Serif", Font.ITALIC, 14));
                 addButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -281,11 +289,11 @@ public class GUICatalogPanel {
 
                 addButton.addActionListener(r -> {
                     if ((Integer) buys.getValue() == 0)
-                        JOptionPane.showMessageDialog(guiStore.getFrame(), "Ingrese alguna cantidad.");
+                        JOptionPane.showMessageDialog(guiStore.getFrame(), "Ingrese alguna cantidad.", "Error", JOptionPane.ERROR_MESSAGE);
                     else if ((Integer) buys.getValue() < 0)
-                        JOptionPane.showMessageDialog(guiStore.getFrame(), "No se pueden añadir al carrito cantidades negativas.");
+                        JOptionPane.showMessageDialog(guiStore.getFrame(), "No se pueden añadir al carrito cantidades negativas.", "Error", JOptionPane.ERROR_MESSAGE);
                     else if ((Integer) buys.getValue() > product.getStock())
-                        JOptionPane.showMessageDialog(guiStore.getFrame(), "No hay suficiente Stock del Articulo: '" + product.getNameProduct());
+                        JOptionPane.showMessageDialog(guiStore.getFrame(), "No hay suficiente Stock del Articulo: '" + product.getNameProduct(), "Error", JOptionPane.ERROR_MESSAGE);
                     else if ((Integer) buys.getValue() > 0) {
                         logicAlcala.addNumberPurchesed(product, (Integer) buys.getValue());
                         JOptionPane.showMessageDialog(guiStore.getFrame(), (logicAlcala.addPurchased(product)));

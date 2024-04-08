@@ -119,7 +119,10 @@ public class GUICartPanel {
         gbcCart.gridx = -1;
         centerPanel.add(clearButton, gbcCart);
 
-        JButton transfButton = new JButton("Transferencia");
+        ImageIcon checkoutIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons\\checkout.png")));
+        Image checkoutImage = checkoutIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+        ImageIcon scaledCheckoutIcon = new ImageIcon(checkoutImage);
+        JButton transfButton = new JButton("Transferencia", scaledCheckoutIcon);
         transfButton.setForeground(Color.WHITE);
         transfButton.setBackground(Color.black);
         transfButton.setFont(new Font("Serif", Font.ITALIC, 14));
@@ -127,7 +130,7 @@ public class GUICartPanel {
         gbcCart.gridx = 2;
         centerPanel.add(transfButton, gbcCart);
 
-        JButton datafButton = new JButton("DATAFONO");
+        JButton datafButton = new JButton("DATAFONO", scaledCheckoutIcon);
         datafButton.setForeground(Color.WHITE);
         datafButton.setBackground(Color.black);
         datafButton.setFont(new Font("Serif", Font.ITALIC, 14));
@@ -135,9 +138,6 @@ public class GUICartPanel {
         gbcCart.gridx = 3;
         centerPanel.add(datafButton, gbcCart);
 
-        ImageIcon checkoutIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons\\checkout.png")));
-        Image checkoutImage = checkoutIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-        ImageIcon scaledCheckoutIcon = new ImageIcon(checkoutImage);
         JButton normalyButton = new JButton("Realizar Comanda", scaledCheckoutIcon);
         normalyButton.setForeground(Color.WHITE);
         normalyButton.setBackground(Color.black);
