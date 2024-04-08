@@ -272,6 +272,10 @@ public class GUICartaPanel {
                     r.printStackTrace();
                 }
 
+                Image image = imageProduct.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+                ImageIcon scaledImageProduct = new ImageIcon(image);
+                JLabel imgProduct = new JLabel(scaledImageProduct);
+
                 JLabel nameLabel = new JLabel(product.getNameProduct());
                 nameLabel.setForeground(Color.WHITE);
                 nameLabel.setFont(new Font("Serif", Font.ITALIC, 12));
