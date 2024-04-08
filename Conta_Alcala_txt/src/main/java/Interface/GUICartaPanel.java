@@ -96,7 +96,7 @@ public class GUICartaPanel {
         filteredProducts = new ArrayList<>(GUIstore.getInventory().getProducts());
 
         for (Product product : filteredProducts) {
-            ImageIcon imageProduct;
+            ImageIcon imageProduct = null;
             try {
                 InputStream inputStream = getClass().getResourceAsStream("/Icons/" + product.getId() + ".png");
                 if (inputStream == null) {
@@ -191,7 +191,7 @@ public class GUICartaPanel {
         JPanel buttomPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         buttomPanel.setOpaque(false);
 
-        ImageIcon carIcon = new ImageIcon(String.valueOf(getClass().getResourceAsStream("/Icons\\carrito.png")));
+        ImageIcon carIcon = new ImageIcon(ImageIO.read(getClass().getResourceAsStream("/Icons\\carrito.png")));
         Image carImage = carIcon.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
         ImageIcon scaledcarIcon = new ImageIcon(carImage);
         JButton carButton = new JButton("Comanda", scaledcarIcon);
@@ -201,7 +201,7 @@ public class GUICartaPanel {
         carButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         buttomPanel.add(carButton);
 
-        ImageIcon backIcon = new ImageIcon(String.valueOf(getClass().getResourceAsStream("/Icons\\back.png")));
+        ImageIcon backIcon = new ImageIcon(ImageIO.read(getClass().getResourceAsStream("/Icons\\back.png")));
         Image backImage = backIcon.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
         ImageIcon scaledBackIcon = new ImageIcon(backImage);
         JButton backButton = new JButton("Atrás", scaledBackIcon);
@@ -215,7 +215,12 @@ public class GUICartaPanel {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon backgroundImage = new ImageIcon(String.valueOf(getClass().getResourceAsStream("/Icons\\caja.png")));
+                ImageIcon backgroundImage = null;
+                try {
+                    backgroundImage = new ImageIcon(ImageIO.read(getClass().getResourceAsStream("/Icons\\caja.png")));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
                 g.drawImage(backgroundImage.getImage(), 0, 0, 10000, 10000, this);
             }
         };
@@ -255,15 +260,17 @@ public class GUICartaPanel {
             centerPanel.add(numberLabelTitle, gbcProduct);
 
             for (Product product : filteredProducts) {
-                ImageIcon imageProduct;
+                ImageIcon imageProduct = null;
                 try {
-                    imageProduct = new ImageIcon(String.valueOf(getClass().getResourceAsStream("/Icons/" + product.getId() + ".png")));
-                } catch (NullPointerException r) {
-                    imageProduct = new ImageIcon(String.valueOf(getClass().getResourceAsStream("/Icons/default.png")));
+                    InputStream inputStream = getClass().getResourceAsStream("/Icons/" + product.getId() + ".png");
+                    if (inputStream == null) {
+                        inputStream = getClass().getResourceAsStream("/Icons/default.png");
+                    }
+                    imageProduct = new ImageIcon(ImageIO.read(inputStream));
+                } catch (IOException r) {
+                    // Manejar la excepción adecuadamente, por ejemplo, mostrando un mensaje de error
+                    r.printStackTrace();
                 }
-                Image image = imageProduct.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
-                ImageIcon scaledImageProduct = new ImageIcon(image);
-                JLabel imgProduct = new JLabel(scaledImageProduct);
 
                 JLabel nameLabel = new JLabel(product.getNameProduct());
                 nameLabel.setForeground(Color.WHITE);
