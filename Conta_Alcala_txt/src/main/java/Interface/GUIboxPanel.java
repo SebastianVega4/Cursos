@@ -5,7 +5,6 @@ import logic.LogicAlcala;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
-import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -18,7 +17,7 @@ public class GUIboxPanel {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon backgroundImage = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons/Menu.png")));
+                ImageIcon backgroundImage = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons/caja.png")));
                 g.drawImage(backgroundImage.getImage(), 0, 0, panel.getWidth(), panel.getHeight(), this);
             }
         };
@@ -34,7 +33,7 @@ public class GUIboxPanel {
 
         JPanel centerPanel = new JPanel(new GridBagLayout());
         centerPanel.setOpaque(false);
-        centerPanel.setBorder(new TitledBorder(null, "Edit Product", TitledBorder.CENTER, TitledBorder.TOP));
+        centerPanel.setBorder(new TitledBorder(null, "CAJA", TitledBorder.CENTER, TitledBorder.TOP));
 
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);
@@ -42,6 +41,7 @@ public class GUIboxPanel {
         JButton initButton = new JButton("Iniciar CAJA");
         initButton.setFont(new Font("Arial", Font.BOLD, 14));
         JTextField valBox = new JTextField();
+        valBox.setText(String.valueOf(guiStore.getBox().getBox().getBoxinitial()));
         valBox.setPreferredSize(new Dimension(100, 25));
 
         gbc.gridx = 0;
@@ -88,6 +88,7 @@ public class GUIboxPanel {
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.setBackground(Color.black);
+        buttonPanel.setOpaque(false);
 
         ImageIcon backIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons\\back.png")));
         Image backImage = backIcon.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
@@ -104,12 +105,18 @@ public class GUIboxPanel {
         panel.add(buttonPanel, BorderLayout.PAGE_END);
 
         initButton.addActionListener(e -> {
-            try {int value = Integer.parseInt(valBox.getText());
-                guiStore.getBox().getBox().setBoxinitial(value);
-                guiStore.getBox().writeToFile();
-                JOptionPane.showMessageDialog(null, "CAJA INICIADA");
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
+            if (guiStore.getBox().getBox().getBoxinitial() == 0) {
+                try {
+                    int value = Integer.parseInt(valBox.getText());
+                    guiStore.getBox().getBox().setBoxinitial(value);
+                    guiStore.getBox().writeToFile();
+                    JOptionPane.showMessageDialog(null, "CAJA INICIADA");
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+            } else {
+                valBox.setText(String.valueOf(guiStore.getBox().getBox().getBoxinitial()));
+                JOptionPane.showMessageDialog(null, "No se puede modificar el valor de caja inicial", "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
 

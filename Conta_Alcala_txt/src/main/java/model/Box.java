@@ -9,10 +9,10 @@ import java.util.ArrayList;
 
 public class Box {
     private int boxinitial;
-    private ArrayList<Integer> pagos;
-    private ArrayList<String> referPagos;
-    private ArrayList<Integer> adiciones;
-    private ArrayList<String> referadiciones;
+    private final ArrayList<Integer> pagos;
+    private final ArrayList<String> referPagos;
+    private final ArrayList<Integer> adiciones;
+    private final ArrayList<String> referadiciones;
 
     public Box() {
         boxinitial = 0;
@@ -39,7 +39,7 @@ public class Box {
         return pagos;
     }
 
-    public void setPago( int pago,String referencia) {
+    public void setPago(int pago, String referencia) {
         pagos.add(pago);
         referPagos.add(referencia);
     }
@@ -56,18 +56,19 @@ public class Box {
         adiciones.add(adicion);
         referadiciones.add(referadicion);
     }
-     public int calTotal() throws IOException {
-         int totalPagos=0,totalAdiciones=0;
-         for (int i = 0; i < getAdiciones().size(); i++) {
-             totalAdiciones+=getAdiciones().get(i);
-         }
 
-         for (int i = 0; i < getPagos().size(); i++) {
-             totalPagos+=getPagos().get(i);
-         }
-         LocalDate currentDate = LocalDate.now();
-         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-         String formattedDate = currentDate.format(formatter);
+    public int calTotal() throws IOException {
+        int totalPagos = 0, totalAdiciones = 0;
+        for (int i = 0; i < getAdiciones().size(); i++) {
+            totalAdiciones += getAdiciones().get(i);
+        }
+
+        for (int i = 0; i < getPagos().size(); i++) {
+            totalPagos += getPagos().get(i);
+        }
+        LocalDate currentDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String formattedDate = currentDate.format(formatter);
         return (int) ((boxinitial + totalAdiciones) - totalPagos + LogicAlcala.sumTotalFromFiles("Factura_" + formattedDate + ".txt"));
-     }
+    }
 }

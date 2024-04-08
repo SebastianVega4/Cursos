@@ -12,7 +12,7 @@ public class GUIMenuPanel {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon backgroundImage = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons/Menu.png")));
+                ImageIcon backgroundImage = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons/menu.png")));
                 g.drawImage(backgroundImage.getImage(), 0, 0, panel.getWidth(), panel.getHeight(), this);
             }
         };
@@ -45,7 +45,7 @@ public class GUIMenuPanel {
         ImageIcon cartIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons/carrito.png")));
         Image cartImage = cartIcon.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
         ImageIcon scaledCartIcon = new ImageIcon(cartImage);
-        JButton cartButton = new JButton("Carrito", scaledCartIcon);
+        JButton cartButton = new JButton("Comanda", scaledCartIcon);
         cartButton.setPreferredSize(new Dimension(200, 200));
         cartButton.setFont(new Font("Serif", Font.ITALIC, 14));
         cartButton.setBackground(new Color(63, 81, 181));
@@ -54,7 +54,10 @@ public class GUIMenuPanel {
         cartButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         centerPanel.add(cartButton);
 
-        JButton boxBotton = new JButton("CAJA", scaledCartIcon);
+        ImageIcon boxIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons/box.png")));
+        Image boxImage = boxIcon.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
+        ImageIcon scaledboxIcon = new ImageIcon(boxImage);
+        JButton boxBotton = new JButton("CAJA", scaledboxIcon);
         boxBotton.setPreferredSize(new Dimension(200, 200));
         boxBotton.setFont(new Font("Serif", Font.ITALIC, 14));
         boxBotton.setBackground(new Color(63, 81, 181));
@@ -63,7 +66,10 @@ public class GUIMenuPanel {
         boxBotton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         centerPanel.add(boxBotton);
 
-        JButton calculatorBotton = new JButton("CALCULADORA", scaledCartIcon);
+        ImageIcon calIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons/calcula.png")));
+        Image calImage = calIcon.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
+        ImageIcon scaledcalIcon = new ImageIcon(calImage);
+        JButton calculatorBotton = new JButton("CALCULADORA", scaledcalIcon);
         calculatorBotton.setPreferredSize(new Dimension(200, 200));
         calculatorBotton.setFont(new Font("Serif", Font.ITALIC, 14));
         calculatorBotton.setBackground(new Color(63, 81, 181));

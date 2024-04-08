@@ -126,7 +126,7 @@ public class GUIEditProduct {
             product.setStock((int) spnStock.getValue());
 
             if (txtName.getText().isEmpty() || txtDescription.getText().isEmpty() || txtPrice.getText().isEmpty()
-                || txtPrice.getText().equals("0")) {
+                    || txtPrice.getText().equals("0")) {
                 JOptionPane.showMessageDialog(null, "Ingrese todos los datos");
             } else if ((int) spnStock.getValue() < 1) {
                 JOptionPane.showMessageDialog(null, "Ingrese un stok mayor a 0");

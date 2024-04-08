@@ -3,7 +3,6 @@ package Interface;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
-import java.io.IOException;
 import java.util.Objects;
 
 public class GUIcalculatorPanel {
@@ -14,7 +13,7 @@ public class GUIcalculatorPanel {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon backgroundImage = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons/Menu.png")));
+                ImageIcon backgroundImage = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons/calcu.png")));
                 g.drawImage(backgroundImage.getImage(), 0, 0, panel.getWidth(), panel.getHeight(), this);
             }
         };
@@ -114,6 +113,7 @@ public class GUIcalculatorPanel {
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.setBackground(Color.black);
+        buttonPanel.setOpaque(false);
 
         JButton calculateButton = new JButton("Calculadora Caja");
         calculateButton.setForeground(Color.WHITE);
@@ -121,13 +121,15 @@ public class GUIcalculatorPanel {
         calculateButton.setFont(new Font("Serif", Font.ITALIC, 14));
         calculateButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-        JButton blackButton = new JButton("Atras");
-        blackButton.setForeground(Color.WHITE);
-        blackButton.setBackground(Color.black);
-        blackButton.setFont(new Font("Serif", Font.ITALIC, 14));
-        blackButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        buttonPanel.add(calculateButton);
-        buttonPanel.add(blackButton);
+        ImageIcon backIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons\\back.png")));
+        Image backImage = backIcon.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
+        ImageIcon scaledBackIcon = new ImageIcon(backImage);
+        JButton backButton = new JButton("Atras", scaledBackIcon);
+        backButton.setForeground(Color.WHITE);
+        backButton.setBackground(Color.black);
+        backButton.setFont(new Font("Serif", Font.ITALIC, 14));
+        backButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        buttonPanel.add(backButton);
 
         panel.add(topPanel, BorderLayout.PAGE_START);
         panel.add(centerPanel, BorderLayout.CENTER);
@@ -154,7 +156,7 @@ public class GUIcalculatorPanel {
             }
         });
 
-        blackButton.addActionListener(e -> guiStore.showCustomerMenuPanel());
+        backButton.addActionListener(e -> guiStore.showCustomerMenuPanel());
     }
 
     public JPanel getPanel() {

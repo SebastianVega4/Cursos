@@ -17,7 +17,7 @@ public class GUILoginPanel {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon backgroundImage = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons/Login.png")));
+                ImageIcon backgroundImage = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons/login.png")));
                 g.drawImage(backgroundImage.getImage(), 0, 0, getWidth(), getHeight(), this);
             }
         };
@@ -46,6 +46,10 @@ public class GUILoginPanel {
         userLabel.setFont(new Font("Serif", Font.ITALIC, 18));
         JTextField userField = new JTextField(24);
         userField.setText("admin");
+        userField.setFont(new Font("Serif", Font.ITALIC, 16));
+        userField.setOpaque(false);
+        userField.setForeground(Color.white);
+        userField.setBorder(null);
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 0;
@@ -61,6 +65,10 @@ public class GUILoginPanel {
         passwordLabel.setForeground(Color.WHITE);
         passwordLabel.setFont(new Font("Serif", Font.ITALIC, 18));
         JPasswordField passwordField = new JPasswordField(24);
+        passwordField.setText("1234");
+        passwordField.setOpaque(false);
+        passwordField.setForeground(Color.white);
+        passwordField.setBorder(null);
         gbc.gridx = 0;
         gbc.gridy = 0;
         passwordPanel.add(passwordLabel, gbc);

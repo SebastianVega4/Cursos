@@ -1,17 +1,17 @@
 package model;
 
 public class Order {
-    private ShoppingCart shoppingCart;
+    private ShoppingComan shoppingComan;
 
-    public Order(ShoppingCart shoppingCart) {
-        this.shoppingCart = shoppingCart;
+    public Order(ShoppingComan shoppingComan) {
+        this.shoppingComan = shoppingComan;
     }
 
-    public ShoppingCart getShoppingCart() {
-        return shoppingCart;
+    public ShoppingComan getShoppingCart() {
+        return shoppingComan;
     }
 
-    public void setShoppingCart(ShoppingCart shoppingCart) {
-        this.shoppingCart = shoppingCart;
+    public void setShoppingCart(ShoppingComan shoppingComan) {
+        this.shoppingComan = shoppingComan;
     }
 }

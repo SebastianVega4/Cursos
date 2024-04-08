@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class CajaPersis {
-    private Box box = new Box();
+    private final Box box = new Box();
 
     public void readFromFile() throws IOException {
         String currentDir = System.getProperty("user.dir");
@@ -76,12 +76,12 @@ public class CajaPersis {
             }
             writer.write("Ventas: " + LogicAlcala.sumTotalFromFiles("Factura_" + formattedDate + ".txt") + "\n");
             writer.write("-----------------------------------------\n");
-            writer.write("TOTAL Caja: "+ box.calTotal());
-            writer.write("\n\nTOTAL Datafono: "+ LogicAlcala.sumTotalFromFiles("Factura_" + formattedDate + "_DATAFONO.txt"));
-            writer.write("\nTOTAL Transferencias: "+ LogicAlcala.sumTotalFromFiles("Factura_" + formattedDate + "_TRANSFERENCIA.txt"));
-            writer.write("\n\nTOTAL ventas : "+ (box.calTotal()+
-                                                 LogicAlcala.sumTotalFromFiles("Factura_" + formattedDate + "_DATAFONO.txt")+
-                                                 LogicAlcala.sumTotalFromFiles("Factura_" + formattedDate + "_TRANSFERENCIA.txt")));
+            writer.write("TOTAL Caja: " + box.calTotal());
+            writer.write("\n\nTOTAL Datafono: " + LogicAlcala.sumTotalFromFiles("Factura_" + formattedDate + "_DATAFONO.txt"));
+            writer.write("\nTOTAL Transferencias: " + LogicAlcala.sumTotalFromFiles("Factura_" + formattedDate + "_TRANSFERENCIA.txt"));
+            writer.write("\n\nTOTAL ventas : " + (box.calTotal() +
+                    LogicAlcala.sumTotalFromFiles("Factura_" + formattedDate + "_DATAFONO.txt") +
+                    LogicAlcala.sumTotalFromFiles("Factura_" + formattedDate + "_TRANSFERENCIA.txt")));
         }
 
     }

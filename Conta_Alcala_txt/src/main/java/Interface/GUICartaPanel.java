@@ -11,18 +11,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class GUICatalogPanel {
+public class GUICartaPanel {
     private final JPanel panel;
     private final LogicAlcala logicAlcala;
     private final List<Product> filteredProducts;
 
-    public GUICatalogPanel(GUIstore guiStore) {
+    public GUICartaPanel(GUIstore guiStore) {
         this.logicAlcala = guiStore.getLogicAlcala();
         panel = new JPanel(new BorderLayout()) {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon backgroundImage = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons\\Catal.png")));
+                ImageIcon backgroundImage = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons\\carta.png")));
                 g.drawImage(backgroundImage.getImage(), 0, 0, panel.getWidth(), panel.getHeight(), this);
             }
         };
@@ -196,7 +196,7 @@ public class GUICatalogPanel {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon backgroundImage = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons\\Catal.png")));
+                ImageIcon backgroundImage = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons\\caja.png")));
                 g.drawImage(backgroundImage.getImage(), 0, 0, 10000, 10000, this);
             }
         };

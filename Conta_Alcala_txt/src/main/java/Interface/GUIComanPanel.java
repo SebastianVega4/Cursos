@@ -8,17 +8,17 @@ import java.awt.*;
 import java.io.IOException;
 import java.util.Objects;
 
-public class GUICartPanel {
+public class GUIComanPanel {
     private final JPanel panel;
     private final LogicAlcala logicAlcala;
 
-    public GUICartPanel(GUIstore guiStore) {
+    public GUIComanPanel(GUIstore guiStore) {
         this.logicAlcala = guiStore.getLogicAlcala();
         panel = new JPanel(new BorderLayout()) {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon backgroundImage = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons\\Shopping.png")));
+                ImageIcon backgroundImage = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons\\coman.png")));
                 g.drawImage(backgroundImage.getImage(), 0, 0, panel.getWidth(), panel.getHeight(), this);
             }
         };
@@ -163,7 +163,7 @@ public class GUICartPanel {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon backgroundImage = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons/Shopping.png")));
+                ImageIcon backgroundImage = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons/comand.png")));
                 g.drawImage(backgroundImage.getImage(), 0, 0, backgroundImage.getIconWidth() + 500, backgroundImage.getIconHeight(), this);
             }
         };

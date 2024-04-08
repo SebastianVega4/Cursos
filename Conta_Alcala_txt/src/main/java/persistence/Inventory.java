@@ -60,7 +60,7 @@ public class Inventory {
     }
 
     public void editProduct(String name, String description, String price, String stock, int index) throws IOException {
-        Product product = products.get(index-1);
+        Product product = products.get(index - 1);
 
         // Actualiza los atributos del producto
         product.setNameProduct(name);
@@ -71,6 +71,7 @@ public class Inventory {
         // Guarda los cambios en el archivo
         updateProductToTxt();
     }
+
     public List<Product> getProducts() {
         return products;
     }

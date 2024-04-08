@@ -13,7 +13,7 @@ public class GUIstore {
     private static Inventory inventory = null;
     private final JFrame frame;
     private final LogicAlcala logicAlcala = new LogicAlcala();
-    private CajaPersis box;
+    private final CajaPersis box;
 
     public GUIstore() throws IOException {
         frame = new JFrame("Restaurante Alcala");
@@ -57,17 +57,17 @@ public class GUIstore {
     }
 
     public void showCatalogPanel() {
-        GUICatalogPanel gUICatalogPanel = new GUICatalogPanel(this);
+        GUICartaPanel gUICartaPanel = new GUICartaPanel(this);
         frame.getContentPane().removeAll();
-        frame.getContentPane().add(gUICatalogPanel.getPanel(), BorderLayout.CENTER);
+        frame.getContentPane().add(gUICartaPanel.getPanel(), BorderLayout.CENTER);
         frame.revalidate();
         frame.repaint();
     }
 
     public void showCartPanel() {
-        GUICartPanel gUICartPanel = new GUICartPanel(this);
+        GUIComanPanel gUIComanPanel = new GUIComanPanel(this);
         frame.getContentPane().removeAll();
-        frame.getContentPane().add(gUICartPanel.getPanel(), BorderLayout.CENTER);
+        frame.getContentPane().add(gUIComanPanel.getPanel(), BorderLayout.CENTER);
         frame.revalidate();
         frame.repaint();
     }

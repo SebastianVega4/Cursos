@@ -5,11 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ShoppingCart {
+public class ShoppingComan {
     private final Map<Product, Integer> purchased;
     private List<Product> products;
 
-    public ShoppingCart() {
+    public ShoppingComan() {
         this.products = new ArrayList<>();
         this.purchased = new HashMap<>();
     }
