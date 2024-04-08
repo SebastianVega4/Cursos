@@ -1,11 +1,12 @@
 package Interface;
 
+import javax.swing.*;
 import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        GUIstore guiStore = new GUIstore();
-        guiStore.showCatalogPanel();
-        guiStore.getFrame().setVisible(true);
+        GUIstore gUIstore = new GUIstore();
+        gUIstore.getFrame().setVisible(true);
+        gUIstore.showLoginPanel();
     }
 }

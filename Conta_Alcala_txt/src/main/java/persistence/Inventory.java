@@ -17,7 +17,7 @@ public class Inventory {
     public void obtainProductToTxt() throws IOException {
         // Obtén el directorio actual
         String currentDir = System.getProperty("user.dir");
-
+        System.out.println(currentDir);
         // Crea un archivo en el directorio actual
         File file = new File(currentDir, "ProductsAlcala.txt");
 
@@ -28,6 +28,9 @@ public class Inventory {
                 int idProduct = Integer.parseInt(parts[0]);
                 String nameProduct = parts[1];
                 String description = parts[2];
+                if (description.length() > 10) {
+                    description = description.substring(0, 10) + "...";
+                }
                 double price = Double.parseDouble(parts[3]);
                 int stock = Integer.parseInt(parts[4]);
                 Product product = new Product(idProduct, nameProduct, description, price, stock);

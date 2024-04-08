@@ -1,38 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Conta_Alcala_txt:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b046a45-0cf1-4a6e-8299-3450d9470ded" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/factura_2024-04-07.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Icons/logop.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Conta_Alcala_txt_jar/Conta_Alcala_txt.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Conta_Alcala_txt_jar/ProductsAlcala.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/factura_2024-04-07-TRANSFERENCIA.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Conta_Alcala_txt_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Conta_Alcala_txt_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProductsAlcala.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProductsAlcala.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/factura_2024-04-06.txt" beforeDir="false" afterPath="$PROJECT_DIR$/factura_2024-04-06.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ProductsAlcala.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/factura.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/factura_2024-04-06.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/factura_2024-04-07.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUICartPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/GUICartPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUICatalogPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/GUICatalogPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUIEditProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/GUIEditProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUILoginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/GUILoginPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Interface/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/logic/LogicAlcala.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/logic/LogicAlcala.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Icons/4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Icons/5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Icons/6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Icons/7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Icons/Logo Ferreteria.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Icons/Logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Icons/Logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Icons/SignUp.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Icons/admin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Icons/admin1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Icons/longOut.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Icons/opciones.jfif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Icons/regresar.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Icons/signout.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ProductsAlcala.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/UsersAlcala.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/factura.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/persistence/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/persistence/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Icons/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Icons/9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Icons/default.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Icons/default.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +124,7 @@
       <workItem from="1712158693225" duration="49000" />
       <workItem from="1712158932810" duration="596000" />
       <workItem from="1712161303919" duration="12186000" />
-      <workItem from="1712429163365" duration="39640000" />
+      <workItem from="1712429163365" duration="54719000" />
     </task>
     <servers />
   </component>

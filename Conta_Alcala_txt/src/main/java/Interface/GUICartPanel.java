@@ -120,16 +120,32 @@ public class GUICartPanel {
         gbcCart.gridx = -1;
         centerPanel.add(clearButton, gbcCart);
 
+        JButton transfButton = new JButton("Transferencia");
+        transfButton.setForeground(Color.WHITE);
+        transfButton.setBackground(Color.black);
+        transfButton.setFont(new Font("Serif", Font.ITALIC, 14));
+        transfButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        gbcCart.gridx = 2;
+        centerPanel.add(transfButton, gbcCart);
+
+        JButton datafButton = new JButton("DATAFONO");
+        datafButton.setForeground(Color.WHITE);
+        datafButton.setBackground(Color.black);
+        datafButton.setFont(new Font("Serif", Font.ITALIC, 14));
+        datafButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        gbcCart.gridx = 3;
+        centerPanel.add(datafButton, gbcCart);
+
         ImageIcon checkoutIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons\\checkout.png")));
         Image checkoutImage = checkoutIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
         ImageIcon scaledCheckoutIcon = new ImageIcon(checkoutImage);
-        JButton checkoutButton = new JButton("Realizar Comanda", scaledCheckoutIcon);
-        checkoutButton.setForeground(Color.WHITE);
-        checkoutButton.setBackground(Color.black);
-        checkoutButton.setFont(new Font("Serif", Font.ITALIC, 14));
-        checkoutButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        JButton normalyButton = new JButton("Realizar Comanda", scaledCheckoutIcon);
+        normalyButton.setForeground(Color.WHITE);
+        normalyButton.setBackground(Color.black);
+        normalyButton.setFont(new Font("Serif", Font.ITALIC, 14));
+        normalyButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         gbcCart.gridx = 4;
-        centerPanel.add(checkoutButton, gbcCart);
+        centerPanel.add(normalyButton, gbcCart);
 
         JPanel buttomPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         buttomPanel.setOpaque(false);
@@ -148,12 +164,14 @@ public class GUICartPanel {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon backgroundImage = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons\\Shopping.png")));
+                ImageIcon backgroundImage = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons/Shopping.png")));
                 g.drawImage(backgroundImage.getImage(), 0, 0, backgroundImage.getIconWidth() + 500, backgroundImage.getIconHeight(), this);
             }
         };
         JScrollPane scrollPanel = new JScrollPane(backgroundPanel);
         scrollPanel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        JScrollBar verticalScrollBar = scrollPanel.getVerticalScrollBar();
+        verticalScrollBar.setUnitIncrement(16);
         backgroundPanel.add(centerPanel, BorderLayout.CENTER);
 
         panel.add(topPanel, BorderLayout.PAGE_START);
@@ -165,9 +183,36 @@ public class GUICartPanel {
             guiStore.showCustomerMenuPanel();
         });
 
-        checkoutButton.addActionListener(e -> {
+        transfButton.addActionListener(e -> {
             try {
-                logicAlcala.makePurchase();
+                logicAlcala.setTipeTransfe(JOptionPane.showInputDialog("Tipo de transferencia"));
+                logicAlcala.makePurchase("transferencia");
+                JOptionPane.showMessageDialog(guiStore.getFrame(), logicAlcala.getFacture());
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+            guiStore.showCustomerMenuPanel();
+        });
+
+        datafButton.addActionListener(e -> {
+            try {
+                int option = JOptionPane.showOptionDialog(null, "¿Con Propina?", "Propina",
+                        JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE,
+                        null, new Object[]{"Sí", "No"}, "No");
+                if (option == 0) {// Se seleccionó la opción "Sí"
+                    logicAlcala.setPropina(Integer.parseInt(JOptionPane.showInputDialog("Valor Propina")));
+                }
+                logicAlcala.makePurchase("datafono");
+                JOptionPane.showMessageDialog(guiStore.getFrame(), logicAlcala.getFacture());
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+            guiStore.showCustomerMenuPanel();
+        });
+
+        normalyButton.addActionListener(e -> {
+            try {
+                logicAlcala.makePurchase("noramaly");
                 JOptionPane.showMessageDialog(guiStore.getFrame(), logicAlcala.getFacture());
             } catch (IOException ex) {
                 throw new RuntimeException(ex);

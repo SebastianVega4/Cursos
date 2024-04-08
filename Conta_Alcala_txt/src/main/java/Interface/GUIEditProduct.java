@@ -2,11 +2,9 @@ package Interface;
 
 import logic.LogicAlcala;
 import model.Product;
-import org.w3c.dom.Text;
 import persistence.Inventory;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.io.IOException;
