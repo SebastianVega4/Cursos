@@ -54,6 +54,24 @@ public class GUIMenuPanel {
         cartButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         centerPanel.add(cartButton);
 
+        JButton boxBotton = new JButton("CAJA", scaledCartIcon);
+        boxBotton.setPreferredSize(new Dimension(200, 200));
+        boxBotton.setFont(new Font("Serif", Font.ITALIC, 14));
+        boxBotton.setBackground(new Color(63, 81, 181));
+        boxBotton.setForeground(Color.WHITE);
+        boxBotton.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.BLACK));
+        boxBotton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        centerPanel.add(boxBotton);
+
+        JButton calculatorBotton = new JButton("CALCULADORA", scaledCartIcon);
+        calculatorBotton.setPreferredSize(new Dimension(200, 200));
+        calculatorBotton.setFont(new Font("Serif", Font.ITALIC, 14));
+        calculatorBotton.setBackground(new Color(63, 81, 181));
+        calculatorBotton.setForeground(Color.WHITE);
+        calculatorBotton.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.BLACK));
+        calculatorBotton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        centerPanel.add(calculatorBotton);
+
         JPanel buttomPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         buttomPanel.setOpaque(false);
 
@@ -75,6 +93,8 @@ public class GUIMenuPanel {
 
         catalogButton.addActionListener(e -> guiStore.showCatalogPanel());
         cartButton.addActionListener(e -> guiStore.showCartPanel());
+        boxBotton.addActionListener(e -> guiStore.showBoxPanel());
+        calculatorBotton.addActionListener(e -> guiStore.showCalculatorPanel());
         signOffButton.addActionListener(e -> guiStore.showLoginPanel());
     }
 

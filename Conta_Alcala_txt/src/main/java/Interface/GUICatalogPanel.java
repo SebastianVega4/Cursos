@@ -2,6 +2,7 @@ package Interface;
 
 import logic.LogicAlcala;
 import model.Product;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -13,7 +14,7 @@ import java.util.Objects;
 public class GUICatalogPanel {
     private final JPanel panel;
     private final LogicAlcala logicAlcala;
-    private List<Product> filteredProducts;
+    private final List<Product> filteredProducts;
 
     public GUICatalogPanel(GUIstore guiStore) {
         this.logicAlcala = guiStore.getLogicAlcala();
@@ -40,12 +41,12 @@ public class GUICatalogPanel {
         JTextField searchField = new JTextField();
         searchField.setColumns(35);
         gbc.gridx++;
-        topPanel.add(searchField,gbc);
+        topPanel.add(searchField, gbc);
 
         JButton searchButton = new JButton("Buscar");
         searchButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         gbc.gridx++;
-        topPanel.add(searchButton,gbc);
+        topPanel.add(searchButton, gbc);
 
         JPanel centerPanel = new JPanel(new GridBagLayout());
         centerPanel.setOpaque(false);
@@ -98,7 +99,7 @@ public class GUICatalogPanel {
             nameLabel.setForeground(Color.WHITE);
             nameLabel.setFont(new Font("Serif", Font.ITALIC, 12));
             JLabel descriptionLabel = new JLabel(product.getDescription());
-            descriptionLabel.setMaximumSize(new Dimension(1,1));
+            descriptionLabel.setMaximumSize(new Dimension(1, 1));
             descriptionLabel.setForeground(Color.WHITE);
             descriptionLabel.setFont(new Font("Serif", Font.ITALIC, 12));
             JLabel priceLabel = new JLabel("$" + product.getPrice());
@@ -131,7 +132,7 @@ public class GUICatalogPanel {
 
             buys.addChangeListener(e -> logicAlcala.addNumberPurchesed(product, (Integer) buys.getValue()));
 
-            addButtonModi.addActionListener(e -> guiStore.showEditProdut(product,product.getId()));
+            addButtonModi.addActionListener(e -> guiStore.showEditProdut(product, product.getId()));
 
             addButton.addActionListener(e -> {
                 if ((Integer) buys.getValue() == 0)
@@ -153,6 +154,7 @@ public class GUICatalogPanel {
                     ImageIcon scaledImageProduct = new ImageIcon(image);
                     imgProduct.setIcon(scaledImageProduct);
                 }
+
                 public void mouseExited(MouseEvent evt) {
                     Image image = finalImageProduct.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
                     ImageIcon scaledImageProduct = new ImageIcon(image);
@@ -189,7 +191,7 @@ public class GUICatalogPanel {
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 ImageIcon backgroundImage = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Icons\\Catal.png")));
-                g.drawImage(backgroundImage.getImage(), 0, 0,  10000, 10000, this);
+                g.drawImage(backgroundImage.getImage(), 0, 0, 10000, 10000, this);
             }
         };
         JScrollPane scrollPanel = new JScrollPane(backgroundPanel);
@@ -242,13 +244,14 @@ public class GUICatalogPanel {
                 nameLabel.setForeground(Color.WHITE);
                 nameLabel.setFont(new Font("Serif", Font.ITALIC, 12));
                 JLabel descriptionLabel = new JLabel(product.getDescription());
-                descriptionLabel.setMaximumSize(new Dimension(1,1));
+                descriptionLabel.setMaximumSize(new Dimension(1, 1));
                 descriptionLabel.setForeground(Color.WHITE);
                 descriptionLabel.setFont(new Font("Serif", Font.ITALIC, 12));
                 JLabel priceLabel = new JLabel("$" + product.getPrice());
                 priceLabel.setForeground(Color.WHITE);
                 priceLabel.setFont(new Font("Serif", Font.ITALIC, 12));
                 JSpinner buys = new JSpinner();
+                buys.setValue(1);
                 JButton addButtonModi = new JButton("Modificar", scaledAddIcon);
                 addButtonModi.setFont(new Font("Serif", Font.ITALIC, 14));
                 addButtonModi.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -274,7 +277,7 @@ public class GUICatalogPanel {
 
                 buys.addChangeListener(r -> logicAlcala.addNumberPurchesed(product, (Integer) buys.getValue()));
 
-                addButtonModi.addActionListener(r -> guiStore.showEditProdut(product,product.getId()));
+                addButtonModi.addActionListener(r -> guiStore.showEditProdut(product, product.getId()));
 
                 addButton.addActionListener(r -> {
                     if ((Integer) buys.getValue() == 0)
@@ -284,6 +287,7 @@ public class GUICatalogPanel {
                     else if ((Integer) buys.getValue() > product.getStock())
                         JOptionPane.showMessageDialog(guiStore.getFrame(), "No hay suficiente Stock del Articulo: '" + product.getNameProduct());
                     else if ((Integer) buys.getValue() > 0) {
+                        logicAlcala.addNumberPurchesed(product, (Integer) buys.getValue());
                         JOptionPane.showMessageDialog(guiStore.getFrame(), (logicAlcala.addPurchased(product)));
                     }
                 });
@@ -295,6 +299,7 @@ public class GUICatalogPanel {
                         ImageIcon scaledImageProduct = new ImageIcon(image);
                         imgProduct.setIcon(scaledImageProduct);
                     }
+
                     public void mouseExited(MouseEvent evt) {
                         Image image = finalImageProduct.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
                         ImageIcon scaledImageProduct = new ImageIcon(image);
@@ -309,7 +314,7 @@ public class GUICatalogPanel {
 
         searchField.addActionListener(r -> searchButton.doClick());
         backButton.addActionListener(e -> guiStore.showCustomerMenuPanel());
-        carButton.addActionListener(e-> guiStore.showCartPanel());
+        carButton.addActionListener(e -> guiStore.showCartPanel());
     }
 
     public JPanel getPanel() {

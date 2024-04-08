@@ -11,8 +11,14 @@ import persistence.Inventory;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 public class LogicAlcala {
     private ImageProducts ip;
@@ -97,15 +103,15 @@ public class LogicAlcala {
             for (Product orderliness : order.getShoppingCart().getProducts()) {
                 facture += String.format("""
                         -- _________________________________ --
-                           Producto:  %,d
-                           Cantidad:  %,d
-                           Precio:    %,d
+                           Producto:  %s
+                           Cantidad:  %s
+                           Precio:    %s
                         """,orderliness.getNameProduct(), order.getShoppingCart().getPurchased(orderliness),orderliness.getPrice());
             }
 
         }
         facture += String.format("""
-                 _______________________________         Total:  $%,d
+                :_______________________________:            Total:  $%s
                 """,shoppingCart.calcTotal());
         if (tipeFacture.equals("transferencia")){
             facture +="                                           "+tipeTransf+"\n \n";
@@ -155,6 +161,53 @@ public class LogicAlcala {
     }
     public void setPropina(int pro){
         propina=pro;
+    }
+
+    public static double sumTotalFromFiles(String nameArchi) throws IOException {
+        final double[] totalSum = {0.0};
+        Pattern pattern = Pattern.compile("Total:\\s*\\$(\\d+(\\.\\d+)?)");
+
+        // Obtén el directorio actual
+        String currentDir = System.getProperty("user.dir");
+
+        try (Stream<Path> paths = Files.list(Paths.get(currentDir))) {
+            paths.filter(p -> p.getFileName().toString().startsWith(nameArchi))
+                    .forEach(filePath -> {
+                        try (Stream<String> lines = Files.lines(filePath)) {
+                            lines.forEach(line -> {
+                                Matcher matcher = pattern.matcher(line);
+                                if (matcher.find()) {
+                                    totalSum[0] += Double.parseDouble(matcher.group(1));
+                                }
+                            });
+                        } catch (IOException e) {
+                            System.err.println("Error al leer el archivo: " + filePath);
+                        }
+                    });
+        }
+
+        return totalSum[0];
+    }
+
+    public static void addTotalSumToFile(String nameArchivo) throws IOException {
+
+        // Obtén el directorio actual
+        String currentDir = System.getProperty("user.dir");
+
+        double totalSum = sumTotalFromFiles(nameArchivo);
+
+        File file = new File(currentDir, nameArchivo);
+        // Verifica si el archivo existe
+        if (file.exists()) {
+            // Escribe en el archivo
+            try (FileWriter writerFacture = new FileWriter(file, true)) {
+                try {
+                    writerFacture.write("\nTotal de todas las facturas: $" + totalSum);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
     }
 
     public ShoppingCart getCart() {

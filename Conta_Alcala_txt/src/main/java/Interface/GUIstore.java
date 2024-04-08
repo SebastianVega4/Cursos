@@ -2,6 +2,7 @@ package Interface;
 
 import logic.LogicAlcala;
 import model.Product;
+import persistence.CajaPersis;
 import persistence.Inventory;
 
 import javax.swing.*;
@@ -12,6 +13,7 @@ public class GUIstore {
     private static Inventory inventory = null;
     private final JFrame frame;
     private final LogicAlcala logicAlcala = new LogicAlcala();
+    private CajaPersis box;
 
     public GUIstore() throws IOException {
         frame = new JFrame("Restaurante Alcala");
@@ -21,16 +23,21 @@ public class GUIstore {
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
         frame.setLayout(new BorderLayout());
-
         inventory = new Inventory();
-    }
-
-    public LogicAlcala getLogicAlcala() {
-        return logicAlcala;
+        box = new CajaPersis();
+        box.readFromFile();
     }
 
     public static Inventory getInventory() {
         return inventory;
+    }
+
+    public CajaPersis getBox() {
+        return box;
+    }
+
+    public LogicAlcala getLogicAlcala() {
+        return logicAlcala;
     }
 
     public void showLoginPanel() {
@@ -69,6 +76,22 @@ public class GUIstore {
         GUIEditProduct gUIEditPanel = new GUIEditProduct(this, product, index);
         frame.getContentPane().removeAll();
         frame.getContentPane().add(gUIEditPanel.getPanel(), BorderLayout.CENTER);
+        frame.revalidate();
+        frame.repaint();
+    }
+
+    public void showBoxPanel() {
+        GUIboxPanel guIboxPanel = new GUIboxPanel(this);
+        frame.getContentPane().removeAll();
+        frame.getContentPane().add(guIboxPanel.getPanel(), BorderLayout.CENTER);
+        frame.revalidate();
+        frame.repaint();
+    }
+
+    public void showCalculatorPanel() {
+        GUIcalculatorPanel guIcalculatorPanel = new GUIcalculatorPanel(this);
+        frame.getContentPane().removeAll();
+        frame.getContentPane().add(guIcalculatorPanel.getPanel(), BorderLayout.CENTER);
         frame.revalidate();
         frame.repaint();
     }

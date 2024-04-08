@@ -1,6 +1,5 @@
 package Interface;
 
-import javax.swing.*;
 import java.io.IOException;
 
 public class Main {

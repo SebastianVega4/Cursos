@@ -1,7 +1,6 @@
 package Interface;
 
 import logic.LogicAlcala;
-import model.Administrator;
 import model.Product;
 
 import javax.swing.*;
@@ -185,8 +184,11 @@ public class GUICartPanel {
 
         transfButton.addActionListener(e -> {
             try {
-                logicAlcala.setTipeTransfe(JOptionPane.showInputDialog("Tipo de transferencia"));
+                String[] options = {"NEQUI", "DAVIPLATA", "BONCOLOMBIA"};
+                String selectedOption = (String) JOptionPane.showInputDialog(null, "Selecciona una opción", "Tipo de transf", JOptionPane.QUESTION_MESSAGE, null, options, options[1]);
+                logicAlcala.setTipeTransfe(selectedOption);
                 logicAlcala.makePurchase("transferencia");
+                guiStore.getBox().writeToFile();
                 JOptionPane.showMessageDialog(guiStore.getFrame(), logicAlcala.getFacture());
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
@@ -203,6 +205,7 @@ public class GUICartPanel {
                     logicAlcala.setPropina(Integer.parseInt(JOptionPane.showInputDialog("Valor Propina")));
                 }
                 logicAlcala.makePurchase("datafono");
+                guiStore.getBox().writeToFile();
                 JOptionPane.showMessageDialog(guiStore.getFrame(), logicAlcala.getFacture());
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
@@ -213,6 +216,7 @@ public class GUICartPanel {
         normalyButton.addActionListener(e -> {
             try {
                 logicAlcala.makePurchase("noramaly");
+                guiStore.getBox().writeToFile();
                 JOptionPane.showMessageDialog(guiStore.getFrame(), logicAlcala.getFacture());
             } catch (IOException ex) {
                 throw new RuntimeException(ex);

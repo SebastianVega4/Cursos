@@ -18,7 +18,7 @@ public class GUIEditProduct {
 
     public GUIEditProduct(GUIstore guiStore, Product product, int index) {
         this.logicAlcala = guiStore.getLogicAlcala();
-        this.inventory = guiStore.getInventory();
+        this.inventory = GUIstore.getInventory();
         panel = new JPanel(new BorderLayout()) {
             @Override
             protected void paintComponent(Graphics g) {
@@ -56,12 +56,12 @@ public class GUIEditProduct {
         JLabel lblStock = new JLabel("Stock:");
         lblStock.setForeground(Color.white);
         lblStock.setFont(new Font("Arial", Font.BOLD, 14));
-        JTextField txtName = new JTextField(product.getNameProduct(),2);
+        JTextField txtName = new JTextField(product.getNameProduct(), 2);
         txtName.setColumns(20); // Ajusta el tamaño a 20 columnas
         txtName.setBorder(centerPanel.getBorder());
-        JTextField txtDescription = new JTextField(product.getDescription(),24);
+        JTextField txtDescription = new JTextField(product.getDescription(), 24);
         txtDescription.setColumns(20); // Ajusta el tamaño a 20 columnas
-        JTextField txtPrice = new JTextField(String.valueOf(product.getPrice()),24);
+        JTextField txtPrice = new JTextField(String.valueOf(product.getPrice()), 24);
         txtPrice.setColumns(20); // Ajusta el tamaño a 20 columnas
         JSpinner spnStock = new JSpinner(new SpinnerNumberModel(product.getStock(), 0, Integer.MAX_VALUE, 1));
 
@@ -126,7 +126,7 @@ public class GUIEditProduct {
             product.setStock((int) spnStock.getValue());
 
             if (txtName.getText().isEmpty() || txtDescription.getText().isEmpty() || txtPrice.getText().isEmpty()
-                    || txtPrice.getText().equals("0")) {
+                || txtPrice.getText().equals("0")) {
                 JOptionPane.showMessageDialog(null, "Ingrese todos los datos");
             } else if ((int) spnStock.getValue() < 1) {
                 JOptionPane.showMessageDialog(null, "Ingrese un stok mayor a 0");
@@ -145,8 +145,9 @@ public class GUIEditProduct {
             }
         });
 
-        btnCancel.addActionListener(e ->guiStore.showCatalogPanel());
+        btnCancel.addActionListener(e -> guiStore.showCatalogPanel());
     }
+
     public JPanel getPanel() {
         return panel;
     }
