@@ -1,0 +1,10 @@
+-----------------------------------------
+Caja Inicial: 0
+Ventas: 0.0
+-----------------------------------------
+TOTAL Caja: 0
+
+TOTAL Datafono: 0.0
+TOTAL Transferencias: 0.0
+
+TOTAL ventas : 0.0

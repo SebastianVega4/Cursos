@@ -10,23 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b046a45-0cf1-4a6e-8299-3450d9470ded" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Conta_Alcala_txt.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/persistence/CartaPersist.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Factura_2024-04-08.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Factura_2024-04-08.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Factura_2024-04-08_CIERRE_CAJA.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Factura_2024-04-08_CIERRE_CAJA.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Conta_Alcala_txt.jar" beforeDir="false" afterPath="$PROJECT_DIR$/Conta_Alcala_txt.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProductsAlcala.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProductsAlcala.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUICartaPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/GUICartaPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUIComanPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/GUIComanPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUIEditProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/GUIEditProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUILoginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/GUILoginPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUIMenuPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/GUIMenuPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUIboxPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/GUIboxPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUIcalculatorPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/GUIcalculatorPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/GUIstore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/GUIstore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Bills/User1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Bills/User2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Bills/UserSara Vergas.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Bills/Userjazmin.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +118,7 @@
       <workItem from="1712158932810" duration="596000" />
       <workItem from="1712161303919" duration="12186000" />
       <workItem from="1712429163365" duration="77664000" />
-      <workItem from="1712591760421" duration="21398000" />
+      <workItem from="1712591760421" duration="27355000" />
     </task>
     <servers />
   </component>
